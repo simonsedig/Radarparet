@@ -1,0 +1,2 @@
+C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csprojResolveAssemblyReference.cache
+C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CoreCompileInputs.cache
