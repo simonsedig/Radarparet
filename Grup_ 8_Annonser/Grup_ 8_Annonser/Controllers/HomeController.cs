@@ -11,11 +11,30 @@ namespace Grup__8_Annonser.Controllers
         //Genererar en klass från en entitet
         LoginDBEntities LoginDB = new LoginDBEntities();
         Grupp8_AnnonserEntities AnnonsDB = new Grupp8_AnnonserEntities();
+        ServiceReferenceAnnons.ServiceAnnonsClient ServiceAnnons = new Grup__8_Annonser.ServiceReferenceAnnons.ServiceAnnonsClient();
 
         // GET: Home
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(string Resurs, string HooverText)
+        {
+            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            return RedirectToAction("Read");
+        }
+
+        public ActionResult Read()
+        {
+            List<ServiceReferenceAnnons.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+            return View(x);
         }
 
         public ActionResult Login()

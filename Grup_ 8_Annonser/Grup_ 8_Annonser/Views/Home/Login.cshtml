@@ -1,0 +1,65 @@
+﻿@model Grup__8_Annonser.Models.LoginModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 		<!--Detta gör det möjligt att skriva på svenska men också för att tala om att det är en sida som använder sig utav svenska-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 		<!--Det här gör sidan tillgänlig för edge-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 		<!--Detta gör så att sidan anpassar sig till olika upplösningar-->
+    <link rel="stylesheet" type="text/css" href="~/base_css.css" /> 		<!--Kopplar css-filen till phpsidan-->
+    <title>Inlogg</title>
+    <!--// använd jQuery innan för att kolla inloggning stämmer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper bgcy">
+
+        <div class="sscontainer">
+            <div class="ssheader bgcb">
+                <h1>Matsedel</h1>
+                @if (ViewData.ModelState[""] != null)
+                {
+                    foreach (var er in ViewData.ModelState[""].Errors)
+                    {
+                        <h2>
+                            @er.ErrorMessage
+                        </h2>
+                    }
+                }
+            </div>
+            <h2 class="header-surte">Matsedel</h2>
+            <div>
+
+                <!--Används utav LINQ för att koppla upp till databas-->
+                @using (Html.BeginForm())
+                {
+
+                    <!-- skapa form -->
+                    <form method="POST" action="">
+
+                        <!-- skapa labels, button till form-->
+                        <label>Användarnamn</label>
+                        <div>
+                            <!--Skapa textbox. I dessa skriver de in sina inloggningsuppgifter-->
+                            @Html.TextBoxFor(i => i.Username, new { placeholder = "användarnamn", @name = "txt_name", @id = "txt_name" })
+                        </div>
+
+                        <label>Lösenord</label>
+                        <div>
+                            @Html.PasswordFor(i => i.Password, new { placeholder = "lösenord", @name = "txt_pass", @id = "txt_pass" })
+                        </div>
+
+                        <button type="submit">Logga in</button>
+                    </form>
+
+                }
+            </div>
+            <div class="ssfooter">
+                <p>Skapad av Simon och Jonathan</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

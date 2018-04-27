@@ -1,0 +1,20 @@
+﻿@model Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass
+
+<h2> Addera annons </h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+
+            <th>
+                Ange den annons du vill lägga till:
+                @Html.EditorFor(m => Model.Resurs, new { htmlAttributes = new { placeholder = "Resurs" } })
+
+                Ange vad för hoovertext som skall vara kopplad till din annons:
+                @Html.EditorFor(m => Model.HooverText, new { htmlAttributes = new { placeholder = "HooverText" } })
+            </th>
+        </tr>
+    </table>
+    <br /><br />
+    <button type="submit">Lägg in ditt val</button>}

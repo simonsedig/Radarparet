@@ -16,9 +16,6 @@ namespace Grup__8_Annonser
     {
         public int AnnonsID { get; set; }
         public string Resurs { get; set; }
-        public string On_hoover_text { get; set; }
-        public string Felmeddelande { get; set; }
-        public Nullable<double> Höjd { get; set; }
-        public Nullable<double> Längd { get; set; }
+        public string HooverText { get; set; }
     }
 }

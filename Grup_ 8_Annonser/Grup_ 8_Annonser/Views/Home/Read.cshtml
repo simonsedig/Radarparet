@@ -1,0 +1,39 @@
+﻿@model List<Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass>
+
+@*@{
+    // kolla session - visa sida om inloggad
+    if (Session["thisLogin"] == null)
+    {
+        Response.Redirect("Login");
+    }
+
+    else
+    {
+
+    }
+
+
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link rel="stylesheet" type="text/css" href="~/base_css.css" />*@
+    <title>Read</title>
+</head>
+
+<body>
+            <h2> Read annons </h2>
+
+            @*Skriver ut all data från databasen genom en "foreach"*@
+            @foreach (var item in Model)
+            {
+              <p>Annons: @item.Resurs</p>
+            }
+</body>
+</html>
