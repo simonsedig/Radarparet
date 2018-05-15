@@ -16,16 +16,20 @@ namespace AdvertisingService
         [OperationContract]
         AnnonsKlass[] ReadAnnons();
         [OperationContract]
-        void CreateAnnons(string Resurs, string HooverText);
+        void CreateAnnons(string resource, string onHooverText);
+        [OperationContract]
+        void UpdateAnnons(int addId, string resource, string onHooverText);
+        [OperationContract]
+        void DeleteAnnons(int addId);
     }
 
     [DataContract]
     public class AnnonsKlass
     {
         [DataMember]
-        public string Resurs { get; set; }
+        public string resource { get; set; }
         [DataMember]
-        public string HooverText { get; set; }
+        public string onHooverText { get; set; }
     }
 }
-}
+

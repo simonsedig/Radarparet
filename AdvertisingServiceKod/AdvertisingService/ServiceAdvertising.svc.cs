@@ -15,37 +15,93 @@ namespace AdvertisingService
         {
         }
 
-        AnnonsKlass[] IServiceAnnons.ReadAnnons()
+        AnnonsKlass[] IServiceAdvertising.ReadAnnons()
         {
             using (var DBA = new Grupp8_AnnonserEntities())
             {
                 var GetListFromDB = from y in DBA.Annons
                                     select y;
-                List<AnnonsKlass> MatList = new List<AnnonsKlass>();
+                List<AnnonsKlass> AnnonsList = new List<AnnonsKlass>();
 
                 foreach (var rad in GetListFromDB)
                 {
                     AnnonsKlass x = new AnnonsKlass();
-                    x.Resurs = rad.Resurs;
-                    x.HooverText = rad.HooverText;
-                    MatList.Add(x);
+                    x.resource = rad.Resurs;
+                    x.resource = rad.HooverText;
+                    AnnonsList.Add(x);
                 }
-                return MatList.ToArray();
+                return AnnonsList.ToArray();
             }
         }
 
-        void IServiceAnnons.CreateAnnons(string Resurs, string HooverText)
+        void IServiceAdvertising.CreateAnnons(string resource, string onHooverText)
         {
             using (var DBA = new Grupp8_AnnonserEntities())
             {
                 Annons updateAnnons = new Annons
                 {
-                    Resurs = Resurs,
-                    HooverText = HooverText
+                    Resurs = resource,
+                    HooverText = onHooverText
                 };
                 DBA.Annons.Add(updateAnnons);
                 DBA.SaveChanges();
             }
         }
+
+        void IServiceAdvertising.UpdateAnnons(int addId, string resource, string onHooverText)
+        {
+            using (var db = new Grupp8_AnnonserEntities())
+            {
+                var UpdateAnnons = from Per in db.Grupp8_AnnonserEntities
+                                   where Per.Id == addId
+                                   select Per;
+
+
+                    foreach (var AnnonsEdit in UpdateAnnons)
+                    {
+
+                        if (resource == null)
+                        {
+                            AnnonsEdit.ShortCode = onHooverText;
+
+                        }
+
+                        else if (onHooverText == null)
+                        {
+                            AnnonsEdit.Partie = resource;
+
+
+                        }
+                        else
+                        {
+                            AnnonsEdit.ShortCode = onHooverText;
+                            AnnonsEdit.Partie = resource;
+
+                        }
+
+                    }
+                    db.SaveChanges();
+                }
+        }
+        }
+
+        void IServiceAdvertising.DeleteAnnons(int addId)
+        {
+            using (var db = new Grupp8_AnnonserEntities())
+            {
+                var DeleteAnnonser = from AnnonsEdit in db.Grupp8_AnnonserEntities
+                                     where AnnonsEdit.Id == addId
+                                     select AnnonsEdit;
+
+
+                foreach (var AnnonsEdit in DeleteAnnonser)
+                {
+                    db.PartieContainerDB.Remove(AnnonsEdit);
+                }
+                db.SaveChanges();
+            }
+        }
+
     }
+
 }
