@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Grupp8_AnnonserModelStoreContainer" CdmEntityContainer="Grupp8_AnnonserEntities">
+    <EntitySetMapping Name="Annonsers">
+      <EntityTypeMapping TypeName="Grupp8_AnnonserModel.Annonser">
+        <MappingFragment StoreEntitySet="Annonser">
+          <ScalarProperty Name="addId" ColumnName="addId" />
+          <ScalarProperty Name="resources" ColumnName="resources" />
+          <ScalarProperty Name="onHooverText" ColumnName="onHooverText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

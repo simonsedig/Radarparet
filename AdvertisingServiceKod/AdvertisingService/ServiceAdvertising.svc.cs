@@ -19,15 +19,15 @@ namespace AdvertisingService
         {
             using (var DBA = new Grupp8_AnnonserEntities())
             {
-                var GetListFromDB = from y in DBA.Annons
+                var GetListFromDB = from y in DBA.Annonsers
                                     select y;
                 List<AnnonsKlass> AnnonsList = new List<AnnonsKlass>();
 
                 foreach (var rad in GetListFromDB)
                 {
                     AnnonsKlass x = new AnnonsKlass();
-                    x.resource = rad.Resurs;
-                    x.resource = rad.HooverText;
+                    x.resource = rad.resources;
+                    x.onHooverText = rad.onHooverText;
                     AnnonsList.Add(x);
                 }
                 return AnnonsList.ToArray();
@@ -38,12 +38,12 @@ namespace AdvertisingService
         {
             using (var DBA = new Grupp8_AnnonserEntities())
             {
-                Annons updateAnnons = new Annons
+                Annonser updateAnnons = new Annonser
                 {
-                    Resurs = resource,
-                    HooverText = onHooverText
+                    resources = resource,
+                    onHooverText = onHooverText
                 };
-                DBA.Annons.Add(updateAnnons);
+                DBA.Annonsers.Add(updateAnnons);
                 DBA.SaveChanges();
             }
         }
@@ -52,8 +52,8 @@ namespace AdvertisingService
         {
             using (var db = new Grupp8_AnnonserEntities())
             {
-                var UpdateAnnons = from Per in db.Grupp8_AnnonserEntities
-                                   where Per.Id == addId
+                var UpdateAnnons = from Per in db.Annonsers
+                                   where Per.addId == addId
                                    select Per;
 
 
@@ -62,20 +62,20 @@ namespace AdvertisingService
 
                         if (resource == null)
                         {
-                            AnnonsEdit.ShortCode = onHooverText;
+                            AnnonsEdit.onHooverText = onHooverText;
 
                         }
 
                         else if (onHooverText == null)
                         {
-                            AnnonsEdit.Partie = resource;
+                            AnnonsEdit.resources = resource;
 
 
                         }
                         else
                         {
-                            AnnonsEdit.ShortCode = onHooverText;
-                            AnnonsEdit.Partie = resource;
+                            AnnonsEdit.onHooverText = onHooverText;
+                            AnnonsEdit.resources = resource;
 
                         }
 
@@ -83,20 +83,24 @@ namespace AdvertisingService
                     db.SaveChanges();
                 }
         }
+
+        public void DeleteAnnons(int addId)
+        {
+            throw new NotImplementedException();
         }
 
         void IServiceAdvertising.DeleteAnnons(int addId)
         {
             using (var db = new Grupp8_AnnonserEntities())
             {
-                var DeleteAnnonser = from AnnonsEdit in db.Grupp8_AnnonserEntities
-                                     where AnnonsEdit.Id == addId
+                var DeleteAnnonser = from AnnonsEdit in db.Annonsers
+                                     where AnnonsEdit.addId == addId
                                      select AnnonsEdit;
 
 
                 foreach (var AnnonsEdit in DeleteAnnonser)
                 {
-                    db.PartieContainerDB.Remove(AnnonsEdit);
+                    db.Annonsers.Remove(AnnonsEdit);
                 }
                 db.SaveChanges();
             }
