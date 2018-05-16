@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9d1aeaf0-9690-4061-9cc3-8c482720817a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceAdvertising.xsd" MetadataType="Schema" ID="089b2bfe-3e2c-4b39-8e32-6d0aadd35e29" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceAdvertising.wsdl" MetadataType="Wsdl" ID="1bbaf58f-3aa7-4499-b942-8fac411fabd2" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?wsdl" />
+    <MetadataFile FileName="ServiceAdvertising1.xsd" MetadataType="Schema" ID="195de809-5c75-46f0-8cec-2c17d21a9340" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceAdvertising.disco" MetadataType="Disco" ID="2362d172-8261-459a-91aa-cb93c3180ca0" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?disco" />
+    <MetadataFile FileName="ServiceAdvertising2.xsd" MetadataType="Schema" ID="b11e8d13-2717-46a0-a8f3-4b5bfbcd5f72" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

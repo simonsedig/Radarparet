@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grup__8_Annonser.ServiceReferenceAnnons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Grup__8_Annonser.Controllers
         //Genererar en klass från en entitet
         LoginDBEntities LoginDB = new LoginDBEntities();
         Grupp8_AnnonserEntities AnnonsDB = new Grupp8_AnnonserEntities();
-        ServiceReferenceAnnons.ServiceAnnonsClient ServiceAnnons = new Grup__8_Annonser.ServiceReferenceAnnons.ServiceAnnonsClient();
+        ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
 
         // GET: Home
         public ActionResult Index()
