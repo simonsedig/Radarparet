@@ -37,6 +37,30 @@ namespace Grup__8_Annonser.Controllers
             return View(x);
         }
 
+        public ActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Update(string Resurs, string HooverText)
+        {
+            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            return RedirectToAction("Read");
+        }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string Resurs, string HooverText)
+        {
+            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            return RedirectToAction("Read");
+        }
+
         public ActionResult Login()
         {
             return View();
