@@ -15,6 +15,13 @@ namespace AdvertisingService
         {
         }
 
+        AdvertisingService.Annonser IServiceAdvertising.OneDabAnnonser(int? id)
+        {
+            Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
+            Annonser DabAnnons = db.Annonsers.Find(id);
+            return DabAnnons;
+        }
+
         AnnonsKlass[] IServiceAdvertising.ReadAnnons()
         {
             using (var DBA = new Grupp8_AnnonserEntities())
@@ -84,12 +91,12 @@ namespace AdvertisingService
                 }
         }
 
-        public void DeleteAnnons(int addId)
+        public void DeleteAnnons(int? addId)
         {
             throw new NotImplementedException();
         }
 
-        void IServiceAdvertising.DeleteAnnons(int addId)
+        void IServiceAdvertising.DeleteAnnons(int? addId)
         {
             using (var db = new Grupp8_AnnonserEntities())
             {

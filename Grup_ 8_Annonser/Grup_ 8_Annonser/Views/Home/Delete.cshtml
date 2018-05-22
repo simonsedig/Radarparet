@@ -1,11 +1,15 @@
-﻿@model List<Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass>
+﻿@model Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass
 @{
     ViewBag.Title = "Delete";
 }
 
 <h1>Delete</h1>
 @*Skriver ut all data från databasen genom en "foreach"*@
-@foreach (var item in Model)
+Resurs: <br />
+@Html.DisplayFor(m => Model.resource)<br />
+onHooverText: <br />
+@Html.DisplayFor(m => Model.onHooverText)<br />
+@using (Html.BeginForm())
 {
-    <p>Annons: @item.resource</p>
+          <input type="submit" value="Radera" />
 }

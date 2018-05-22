@@ -11,7 +11,6 @@ namespace Grup__8_Annonser.Controllers
     {
         //Genererar en klass från en entitet
         LoginDBEntities LoginDB = new LoginDBEntities();
-        Grupp8_AnnonserEntities AnnonsDB = new Grupp8_AnnonserEntities();
         ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
 
         // GET: Home
@@ -50,15 +49,21 @@ namespace Grup__8_Annonser.Controllers
             return RedirectToAction("Read");
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return RedirectToAction("Read");
+            }
+
+            Annons Delete = ServiceAnnons.OneDabAnnonser(id);
+            return View(Delete); 
         }
 
         [HttpPost]
-        public ActionResult Delete(string Resurs, string HooverText)
+        public ActionResult Delete(int id)
         {
-            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            ServiceAnnons.DeleteAnnons(id);
             return RedirectToAction("Read");
         }
 
@@ -104,7 +109,6 @@ namespace Grup__8_Annonser.Controllers
             {
                 var user = anvandare.FirstOrDefault();
                 Session["thisLogin"] = 1;
-                //Session[USER_ID] = user.Id;
                 return true;
             }
             else
