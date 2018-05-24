@@ -1,10 +1,10 @@
-﻿@model List<Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass>
+﻿@*@model List<Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass>
 @{
                 ViewBag.Title = "Read";
 }
 
 <h1>Read annons</h1>
-@*Skriver ut all data från databasen genom en "foreach"*@
+@*Skriver ut all data från databasen genom en "foreach"
 @foreach (var item in Model)
 {
 <tr>
@@ -16,4 +16,4 @@
 
 }
 
-@Html.ActionLink("Skapa en ny reklam", "Create")
+@Html.ActionLink("Skapa en ny reklam", "Create")*@
