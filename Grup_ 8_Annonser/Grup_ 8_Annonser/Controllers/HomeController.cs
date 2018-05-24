@@ -82,7 +82,7 @@ namespace Grup__8_Annonser.Controllers
 
         //Skapar inloggning som är kopplad till en databas
         // taget från exempel .asp hv
-        // skapa inloggning via db
+        // skapa inloggning via db H
         [HttpPost]
         public ActionResult Login(Models.LoginModel thisLogin)
         {
