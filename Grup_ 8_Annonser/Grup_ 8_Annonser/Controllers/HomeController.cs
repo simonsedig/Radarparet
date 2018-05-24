@@ -37,15 +37,21 @@ namespace Grup__8_Annonser.Controllers
             return View(x);
         }
 
-        public ActionResult Update()
+        public ActionResult Update(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return RedirectToAction("Read");
+            }
+
+            Annons Update = ServiceAnnons.RndAnnonser(id);
+            return View(Update);
         }
 
         [HttpPost]
-        public ActionResult Update(string Resurs, string HooverText)
+        public ActionResult Update(Annons Update)
         {
-            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            ServiceAnnons.UpdateAnnons(Update);
             return RedirectToAction("Read");
         }
 
@@ -56,7 +62,7 @@ namespace Grup__8_Annonser.Controllers
                 return RedirectToAction("Read");
             }
 
-            Annons Delete = ServiceAnnons.OneDabAnnonser(id);
+            Annons Delete = ServiceAnnons.RndAnnonser(id);
             return View(Delete); 
         }
 

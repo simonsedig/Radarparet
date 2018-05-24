@@ -15,11 +15,11 @@ namespace AdvertisingService
         {
         }
 
-        AdvertisingService.Annonser IServiceAdvertising.OneDabAnnonser(int? id)
+        AdvertisingService.Annonser IServiceAdvertising.RndAnnonser(int? id)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
-            Annonser DabAnnons = db.Annonsers.Find(id);
-            return DabAnnons;
+            Annonser RndAnnons = db.Annonsers.Find(id);
+            return RndAnnons;
         }
 
         AnnonsKlass[] IServiceAdvertising.ReadAnnons()
@@ -45,50 +45,21 @@ namespace AdvertisingService
         {
             using (var DBA = new Grupp8_AnnonserEntities())
             {
-                Annonser updateAnnons = new Annonser
+                Annonser CreateAnnons = new Annonser
                 {
                     resources = resource,
                     onHooverText = onHooverText
                 };
-                DBA.Annonsers.Add(updateAnnons);
+                DBA.Annonsers.Add(CreateAnnons);
                 DBA.SaveChanges();
             }
         }
 
-        void IServiceAdvertising.UpdateAnnons(int addId, string resource, string onHooverText)
+        void IServiceAdvertising.UpdateAnnons(Annonser Update)
         {
-            using (var db = new Grupp8_AnnonserEntities())
-            {
-                var UpdateAnnons = from Per in db.Annonsers
-                                   where Per.addId == addId
-                                   select Per;
-
-
-                    foreach (var AnnonsEdit in UpdateAnnons)
-                    {
-
-                        if (resource == null)
-                        {
-                            AnnonsEdit.onHooverText = onHooverText;
-
-                        }
-
-                        else if (onHooverText == null)
-                        {
-                            AnnonsEdit.resources = resource;
-
-
-                        }
-                        else
-                        {
-                            AnnonsEdit.onHooverText = onHooverText;
-                            AnnonsEdit.resources = resource;
-
-                        }
-
-                    }
-                    db.SaveChanges();
-                }
+            Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
+            db.Entry(Update).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
         }
 
         public void DeleteAnnons(int? addId)

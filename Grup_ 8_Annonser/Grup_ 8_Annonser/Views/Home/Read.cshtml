@@ -7,5 +7,13 @@
 @*Skriver ut all data från databasen genom en "foreach"*@
 @foreach (var item in Model)
 {
-    <p>Annons: @item.resource</p>
+<tr>
+    <td><p>Annons: @item.resource</p></td>
+    <td>Hoovertext: @item.onHooverText</td>
+    <td>@Html.ActionLink("Radera", "Delete", new { id = item.addId }</td>
+    <td>@Html.ActionLink("Uppdatera", "Update", new { id = item.addId }</td>
+</tr>
+
 }
+
+@Html.ActionLink("Skapa en ny reklam", "Create")

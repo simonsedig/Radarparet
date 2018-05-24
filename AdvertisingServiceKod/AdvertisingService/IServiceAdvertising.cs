@@ -14,13 +14,13 @@ namespace AdvertisingService
         [OperationContract]
         void DoWork();
         [OperationContract]
-        AdvertisingService.Annonser OneDabAnnonser(int? id);
+        AdvertisingService.Annonser RndAnnonser(int? id);
         [OperationContract]
         AnnonsKlass[] ReadAnnons();
         [OperationContract]
         void CreateAnnons(string resource, string onHooverText);
         [OperationContract]
-        void UpdateAnnons(int addId, string resource, string onHooverText);
+        void UpdateAnnons(Annonser Update);
         [OperationContract]
         void DeleteAnnons(int? addId);
     }
@@ -32,6 +32,8 @@ namespace AdvertisingService
         public string resource { get; set; }
         [DataMember]
         public string onHooverText { get; set; }
+        [DataMember]
+        public string addId { get; set; }
     }
 }
 

@@ -12,13 +12,13 @@
 
             <th>
                 Ange den annons du vill lägga till:
-                @Html.EditorFor(m => Model.resource, new { htmlAttributes = new { placeholder = Model.resource } })
+                @Html.EditorFor(m => Model.resource)
                 <br />
                 Ange vad för hoovertext som skall vara kopplad till din annons:
-                @Html.EditorFor(m => Model.onHooverText, new { htmlAttributes = new { placeholder = Model.onHooverText } })
+                @Html.EditorFor(m => Model.onHooverText)
             </th>
         </tr>
     </table>
     <br /><br />
-    <button type="submit">Lägg in ditt val</button>}
+    <button type="submit">Uppdatera annons</button>}
 
