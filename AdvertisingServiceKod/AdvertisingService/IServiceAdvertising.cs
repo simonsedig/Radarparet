@@ -14,7 +14,9 @@ namespace AdvertisingService
         [OperationContract]
         void DoWork();
         [OperationContract]
-        AdvertisingService.Annonser RndAnnonser(int? id);
+        AdvertisingService.Annonser GetAnnonsId(int? id);
+        [OperationContract]
+        AdvertisingService.Annonser RndAnnons();
         [OperationContract]
         AnnonsKlass[] ReadAnnons();
         [OperationContract]

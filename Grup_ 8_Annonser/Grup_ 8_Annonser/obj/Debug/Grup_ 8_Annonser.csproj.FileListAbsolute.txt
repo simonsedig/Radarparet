@@ -68,8 +68,6 @@ C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\bin
 C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\bin\System.Web.Webpages.Razor.xml
 C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\bin\System.Web.Helpers.xml
 C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\bin\System.Web.Mvc.xml
-C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CoreCompileInputs.cache
-C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CopyComplete
 C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.dll
 C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.pdb
 C:\Users\Administratör.WIN-R6PLQ5TLLIV\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\bin\roslyn\csc.rsp
