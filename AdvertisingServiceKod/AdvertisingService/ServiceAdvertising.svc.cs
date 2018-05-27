@@ -29,10 +29,16 @@ namespace AdvertisingService
             return returnDate;
         }
 
-        AdvertisingService.Annonser IServiceAdvertising.GetAnnonsId(int? id)
+        AdvertisingService.AnnonsKlass IServiceAdvertising.GetAnnonsId(int? id)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
-            Annonser GetAnnonsAnnons = db.Annonsers.Find(id);
+            var item = db.Annonsers.Find(id);
+            AnnonsKlass GetAnnonsAnnons = new AnnonsKlass()
+            {
+                addId = item.addId.ToString(),
+                resource = item.resources,
+                onHooverText = item.onHooverText
+        };
             return GetAnnonsAnnons;
         }
 
@@ -91,7 +97,7 @@ namespace AdvertisingService
             }
         }
 
-        void IServiceAdvertising.UpdateAnnons(Annonser Update)
+        void IServiceAdvertising.UpdateAnnons(AnnonsKlass Update)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
             db.Entry(Update).State = System.Data.Entity.EntityState.Modified;

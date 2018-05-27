@@ -12,7 +12,6 @@ namespace Grup__8_Annonser.Controllers
     {
         //Genererar en klass från en entitet
         Models.LoginModel Login = new Models.LoginModel();
-        Models.AnnonsControllKlass AnnonsModel = new Models.AnnonsControllKlass();
         ServiceAdvertisingClient ServiceAnnons = new ServiceReferenceAnnonser.ServiceAdvertisingClient();
 
         public ActionResult Create()
@@ -21,15 +20,15 @@ namespace Grup__8_Annonser.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ServiceReferenceAnnonser.AnnonsKlass Model)
+        public ActionResult Create(ServiceReferenceAnnonser.Annonser Model)
         {
-            ServiceAnnons.CreateAnnons(Model.resource, Model.onHooverText);
+            ServiceAnnons.CreateAnnons(Model.resources, Model.onHooverText);
             return RedirectToAction("Read");
         }
 
         public ActionResult Read()
         {
-            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+            List<ServiceReferenceAnnonser.Annonser> x = ServiceAnnons.ReadAnnons().ToList();
             return View(x);
         }
 

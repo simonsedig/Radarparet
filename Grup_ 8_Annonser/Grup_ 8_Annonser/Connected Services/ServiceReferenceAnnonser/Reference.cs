@@ -177,6 +177,12 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/DoWork", ReplyAction="http://tempuri.org/IServiceAdvertising/DoWorkResponse")]
         System.Threading.Tasks.Task DoWorkAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/DoILive", ReplyAction="http://tempuri.org/IServiceAdvertising/DoILiveResponse")]
+        string DoILive();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/DoILive", ReplyAction="http://tempuri.org/IServiceAdvertising/DoILiveResponse")]
+        System.Threading.Tasks.Task<string> DoILiveAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId", ReplyAction="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse")]
         Grup__8_Annonser.ServiceReferenceAnnonser.Annonser GetAnnonsId(System.Nullable<int> id);
         
@@ -247,6 +253,14 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         
         public System.Threading.Tasks.Task DoWorkAsync() {
             return base.Channel.DoWorkAsync();
+        }
+        
+        public string DoILive() {
+            return base.Channel.DoILive();
+        }
+        
+        public System.Threading.Tasks.Task<string> DoILiveAsync() {
+            return base.Channel.DoILiveAsync();
         }
         
         public Grup__8_Annonser.ServiceReferenceAnnonser.Annonser GetAnnonsId(System.Nullable<int> id) {

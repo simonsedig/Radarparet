@@ -16,7 +16,7 @@ namespace AdvertisingService
         [OperationContract]
         string DoILive();
         [OperationContract]
-        AdvertisingService.Annonser GetAnnonsId(int? id);
+        AdvertisingService.AnnonsKlass GetAnnonsId(int? id);
         [OperationContract]
         List<string> RndAnnons(int p);
         [OperationContract]
@@ -24,7 +24,7 @@ namespace AdvertisingService
         [OperationContract]
         void CreateAnnons(string resource, string onHooverText);
         [OperationContract]
-        void UpdateAnnons(Annonser Update);
+        void UpdateAnnons(AnnonsKlass Update);
         [OperationContract]
         void DeleteAnnons(int? addId);
     }
