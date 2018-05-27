@@ -15,83 +15,6 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Annonser", Namespace="http://schemas.datacontract.org/2004/07/AdvertisingService")]
-    [System.SerializableAttribute()]
-    public partial class Annonser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int addIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string onHooverTextField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string resourcesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int addId {
-            get {
-                return this.addIdField;
-            }
-            set {
-                if ((this.addIdField.Equals(value) != true)) {
-                    this.addIdField = value;
-                    this.RaisePropertyChanged("addId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string onHooverText {
-            get {
-                return this.onHooverTextField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.onHooverTextField, value) != true)) {
-                    this.onHooverTextField = value;
-                    this.RaisePropertyChanged("onHooverText");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string resources {
-            get {
-                return this.resourcesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.resourcesField, value) != true)) {
-                    this.resourcesField = value;
-                    this.RaisePropertyChanged("resources");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnnonsKlass", Namespace="http://schemas.datacontract.org/2004/07/AdvertisingService")]
     [System.SerializableAttribute()]
     public partial class AnnonsKlass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -100,7 +23,7 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string addIdField;
+        private int addIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string onHooverTextField;
@@ -119,12 +42,12 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string addId {
+        public int addId {
             get {
                 return this.addIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.addIdField, value) != true)) {
+                if ((this.addIdField.Equals(value) != true)) {
                     this.addIdField = value;
                     this.RaisePropertyChanged("addId");
                 }
@@ -184,10 +107,10 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         System.Threading.Tasks.Task<string> DoILiveAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId", ReplyAction="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse")]
-        Grup__8_Annonser.ServiceReferenceAnnonser.Annonser GetAnnonsId(System.Nullable<int> id);
+        Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass GetAnnonsId(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId", ReplyAction="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse")]
-        System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.Annonser> GetAnnonsIdAsync(System.Nullable<int> id);
+        System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> GetAnnonsIdAsync(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/RndAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse")]
         string[] RndAnnons(int p);
@@ -208,10 +131,10 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         System.Threading.Tasks.Task CreateAnnonsAsync(string resource, string onHooverText);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/UpdateAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/UpdateAnnonsResponse")]
-        void UpdateAnnons(Grup__8_Annonser.ServiceReferenceAnnonser.Annonser Update);
+        void UpdateAnnons(Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass Update);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/UpdateAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/UpdateAnnonsResponse")]
-        System.Threading.Tasks.Task UpdateAnnonsAsync(Grup__8_Annonser.ServiceReferenceAnnonser.Annonser Update);
+        System.Threading.Tasks.Task UpdateAnnonsAsync(Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass Update);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/DeleteAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/DeleteAnnonsResponse")]
         void DeleteAnnons(System.Nullable<int> addId);
@@ -263,11 +186,11 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
             return base.Channel.DoILiveAsync();
         }
         
-        public Grup__8_Annonser.ServiceReferenceAnnonser.Annonser GetAnnonsId(System.Nullable<int> id) {
+        public Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass GetAnnonsId(System.Nullable<int> id) {
             return base.Channel.GetAnnonsId(id);
         }
         
-        public System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.Annonser> GetAnnonsIdAsync(System.Nullable<int> id) {
+        public System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> GetAnnonsIdAsync(System.Nullable<int> id) {
             return base.Channel.GetAnnonsIdAsync(id);
         }
         
@@ -295,11 +218,11 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
             return base.Channel.CreateAnnonsAsync(resource, onHooverText);
         }
         
-        public void UpdateAnnons(Grup__8_Annonser.ServiceReferenceAnnonser.Annonser Update) {
+        public void UpdateAnnons(Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass Update) {
             base.Channel.UpdateAnnons(Update);
         }
         
-        public System.Threading.Tasks.Task UpdateAnnonsAsync(Grup__8_Annonser.ServiceReferenceAnnonser.Annonser Update) {
+        public System.Threading.Tasks.Task UpdateAnnonsAsync(Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass Update) {
             return base.Channel.UpdateAnnonsAsync(Update);
         }
         

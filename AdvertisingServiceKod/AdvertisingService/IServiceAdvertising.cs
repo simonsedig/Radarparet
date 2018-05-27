@@ -37,7 +37,7 @@ namespace AdvertisingService
         [DataMember]
         public string onHooverText { get; set; }
         [DataMember]
-        public string addId { get; set; }
+        public int addId { get; set; }
     }
 }
 

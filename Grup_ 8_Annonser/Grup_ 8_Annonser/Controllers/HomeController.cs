@@ -14,21 +14,29 @@ namespace Grup__8_Annonser.Controllers
         Models.LoginModel Login = new Models.LoginModel();
         ServiceAdvertisingClient ServiceAnnons = new ServiceReferenceAnnonser.ServiceAdvertisingClient();
 
+        public ActionResult rndAnnons()
+        {
+            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+            var rndindex = new Random().Next(x.Count);
+            AnnonsKlass hej = x[rndindex];
+            return View(hej);
+        }
+
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(ServiceReferenceAnnonser.Annonser Model)
+        public ActionResult Create(ServiceReferenceAnnonser.AnnonsKlass Model)
         {
-            ServiceAnnons.CreateAnnons(Model.resources, Model.onHooverText);
+            ServiceAnnons.CreateAnnons(Model.resource, Model.onHooverText);
             return RedirectToAction("Read");
         }
 
         public ActionResult Read()
         {
-            List<ServiceReferenceAnnonser.Annonser> x = ServiceAnnons.ReadAnnons().ToList();
+            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
             return View(x);
         }
 
@@ -38,12 +46,12 @@ namespace Grup__8_Annonser.Controllers
             //{
             //    return RedirectToAction("Read");
             //}
-            ServiceReferenceAnnonser.Annonser Update = ServiceAnnons.GetAnnonsId(id);
+            ServiceReferenceAnnonser.AnnonsKlass Update = ServiceAnnons.GetAnnonsId(id);
             return View(Update);
         }
 
         [HttpPost]
-        public ActionResult Update(ServiceReferenceAnnonser.Annonser Update)
+        public ActionResult Update(ServiceReferenceAnnonser.AnnonsKlass Update)
         {
             ServiceAnnons.UpdateAnnons(Update);
             return RedirectToAction("Read");
@@ -56,7 +64,7 @@ namespace Grup__8_Annonser.Controllers
             //    return RedirectToAction("Read");
             //}
 
-            ServiceReferenceAnnonser.Annonser Delete = ServiceAnnons.GetAnnonsId(id);
+            ServiceReferenceAnnonser.AnnonsKlass Delete = ServiceAnnons.GetAnnonsId(id);
             return View(Delete); 
         }
 

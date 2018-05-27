@@ -117,9 +117,6 @@
     <Content Include="App_Data\LoginDB_log.ldf">
       <DependentUpon>LoginDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReferenceAnnonser\Grup__8_Annonser.ServiceReferenceAnnonser.Annonser.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\ServiceReferenceAnnonser\Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -265,6 +262,7 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Update.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\rndAnnons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

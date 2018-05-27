@@ -35,7 +35,7 @@ namespace AdvertisingService
             var item = db.Annonsers.Find(id);
             AnnonsKlass GetAnnonsAnnons = new AnnonsKlass()
             {
-                addId = item.addId.ToString(),
+                addId = item.addId,
                 resource = item.resources,
                 onHooverText = item.onHooverText
         };
@@ -76,7 +76,7 @@ namespace AdvertisingService
                     AnnonsKlass x = new AnnonsKlass();
                     x.resource = rad.resources;
                     x.onHooverText = rad.onHooverText;
-                    x.addId = rad.addId.ToString();
+                    x.addId = rad.addId;
                     AnnonsList.Add(x);
                 }
                 return AnnonsList.ToArray();
@@ -100,7 +100,10 @@ namespace AdvertisingService
         void IServiceAdvertising.UpdateAnnons(AnnonsKlass Update)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
-            db.Entry(Update).State = System.Data.Entity.EntityState.Modified;
+            var y = db.Annonsers.Find(Update.addId);
+            y.resources = Update.resource;
+            y.onHooverText = Update.onHooverText;
+            db.Entry(y).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
         }
 

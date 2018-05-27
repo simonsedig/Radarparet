@@ -1,4 +1,4 @@
-﻿@model Grup__8_Annonser.ServiceReferenceAnnonser.Annonser
+﻿@model Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass
 @{
     ViewBag.Title = "Delete";
 }
@@ -12,5 +12,6 @@ onHooverText: <br />
 
 @using (Html.BeginForm())
 {
-        <button type="button" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" class="btn btn-default">Radera</button>
+    <button type="button" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" class="btn btn-default">Radera</button>
+    <input name="confirmButton" type="submit" value="Delete" />
 }
