@@ -18,30 +18,29 @@ namespace AdvertisingService
         AdvertisingService.Annonser IServiceAdvertising.GetAnnonsId(int? id)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
-            Annonser RndAnnons = db.Annonsers.Find(id);
-            return RndAnnons;
+            Annonser GetAnnonsAnnons = db.Annonsers.Find(id);
+            return GetAnnonsAnnons;
         }
 
-        AdvertisingService.Annonser IServiceAdvertising.RndAnnons()
+        List<string> IServiceAdvertising.RndAnnons(int p)
         {
-            Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
-            Random rnd = new Random();
-            int tal = rnd.Next(1, 13);
+            Grupp8_AnnonserEntities dbAnnons = new Grupp8_AnnonserEntities();
+            List<string> ListAnnons = new List<string>();
+            int i = 0;
 
             using (var DBA = new Grupp8_AnnonserEntities())
             {
                 var GetListFromDB = from y in DBA.Annonsers
                                     select y;
-                List<AnnonsKlass> AnnonsList = new List<AnnonsKlass>();
 
                 foreach (var rad in GetListFromDB)
                 {
                     AnnonsKlass x = new AnnonsKlass();
-                    x.resource = rad.resources;
-                    x.onHooverText = rad.onHooverText;
-                    AnnonsList.Add(x);
+                    ListAnnons[i] = rad.ToString();
+                    i++;
                 }
-            }  
+            }
+            return ListAnnons;
         }
 
         AnnonsKlass[] IServiceAdvertising.ReadAnnons()

@@ -16,7 +16,7 @@ namespace AdvertisingService
         [OperationContract]
         AdvertisingService.Annonser GetAnnonsId(int? id);
         [OperationContract]
-        AdvertisingService.Annonser RndAnnons();
+        List<string> RndAnnons(int p);
         [OperationContract]
         AnnonsKlass[] ReadAnnons();
         [OperationContract]
