@@ -1,4 +1,4 @@
-﻿//using Grup__8_Annonser.ServiceReferenceAnnons;
+﻿using Grup__8_Annonser.ServiceReferenceAdvertising;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Grup__8_Annonser.Controllers
     {
         //Genererar en klass från en entitet
         LoginDBEntities LoginDB = new LoginDBEntities();
-        //ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
+        ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
 
         // GET: Home
         public ActionResult Index()
@@ -24,19 +24,17 @@ namespace Grup__8_Annonser.Controllers
             return View();
         }
 
-        //http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc
-
         [HttpPost]
         public ActionResult Create(string Resurs, string HooverText)
         {
-            //ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            ServiceAnnons.CreateAnnons(Resurs, HooverText);
             return RedirectToAction("Read");
         }
 
         public ActionResult Read()
         {
-            //List<ServiceReferenceAnnons.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
-            return View(/*x*/);
+            List<ServiceReferenceAdvertising.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+            return View(x);
         }
 
         public ActionResult Update(int? id)
@@ -46,7 +44,7 @@ namespace Grup__8_Annonser.Controllers
                 return RedirectToAction("Read");
             }
 
-            //Annons Update = ServiceAnnons.RndAnnonser(id);
+            Annons Update;
             return View(/*Update*/);
         }
 
