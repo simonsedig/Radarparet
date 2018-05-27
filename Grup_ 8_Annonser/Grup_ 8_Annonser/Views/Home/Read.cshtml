@@ -1,19 +1,19 @@
-﻿@*@model List<Grup__8_Annonser.ServiceReferenceAnnons.AnnonsKlass>
+﻿@model List<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass>
 @{
                 ViewBag.Title = "Read";
 }
 
 <h1>Read annons</h1>
-@*Skriver ut all data från databasen genom en "foreach"
+Skriver ut all data från databasen genom en "foreach"
 @foreach (var item in Model)
 {
 <tr>
     <td><p>Annons: @item.resource</p></td>
     <td>Hoovertext: @item.onHooverText</td>
-    <td>@Html.ActionLink("Radera", "Delete", new { id = item.addId }</td>
-    <td>@Html.ActionLink("Uppdatera", "Update", new { id = item.addId }</td>
+    <td>@Html.ActionLink("Radera", "Delete", new { id = item.addId })</td>
+    <td>@Html.ActionLink("Uppdatera", "Update", new { id = item.addId })</td>
 </tr>
 
 }
 
-@Html.ActionLink("Skapa en ny reklam", "Create")*@
+@Html.ActionLink("Skapa en ny reklam", "Create")

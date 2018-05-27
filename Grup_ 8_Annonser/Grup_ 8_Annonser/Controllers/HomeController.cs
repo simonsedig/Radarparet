@@ -1,4 +1,4 @@
-﻿//using Grup__8_Annonser.ServiceReferenceAnnons;
+﻿using Grup__8_Annonser.ServiceReferenceAnnonser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Grup__8_Annonser.Controllers
     {
         //Genererar en klass från en entitet
         LoginDBEntities LoginDB = new LoginDBEntities();
-        //ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
+        ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
 
         // GET: Home
         public ActionResult Index()
@@ -24,36 +24,34 @@ namespace Grup__8_Annonser.Controllers
             return View();
         }
 
-        //http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc
-
         [HttpPost]
         public ActionResult Create(string Resurs, string HooverText)
         {
-            //ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            ServiceAnnons.CreateAnnons(Resurs, HooverText);
             return RedirectToAction("Read");
         }
 
         public ActionResult Read()
         {
-            //List<ServiceReferenceAnnons.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
-            return View(/*x*/);
+            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+            return View(x);
         }
 
         public ActionResult Update(int? id)
         {
-            if (id == null)
-            {
-                return RedirectToAction("Read");
-            }
+            //if (id == null)
+            //{
+            //    return RedirectToAction("Read");
+            //}
 
-            //Annons Update = ServiceAnnons.RndAnnonser(id);
-            return View(/*Update*/);
+            ServiceReferenceAnnonser.Annonser Update = ServiceAnnons.GetAnnonsId(id);
+            return View(Update);
         }
 
         [HttpPost]
-        public ActionResult Update(Annons Update)
+        public ActionResult Update(ServiceReferenceAnnonser.Annonser Update)
         {
-            //ServiceAnnons.UpdateAnnons(Update);
+            ServiceAnnons.UpdateAnnons(Update);
             return RedirectToAction("Read");
         }
 
@@ -64,14 +62,14 @@ namespace Grup__8_Annonser.Controllers
                 return RedirectToAction("Read");
             }
 
-            //Annons Delete = ServiceAnnons.RndAnnonser(id);
-            return View(/*Delete*/); 
+            ServiceReferenceAnnonser.Annonser Delete = ServiceAnnons.GetAnnonsId(id);
+            return View(Delete); 
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            //ServiceAnnons.DeleteAnnons(id);
+            ServiceAnnons.DeleteAnnons(id);
             return RedirectToAction("Read");
         }
 

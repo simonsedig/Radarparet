@@ -117,10 +117,36 @@
     <Content Include="App_Data\LoginDB_log.ldf">
       <DependentUpon>LoginDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReferenceAnnonser\Grup__8_Annonser.ServiceReferenceAnnonser.Annonser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReferenceAnnonser\Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising.wsdl" />
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReferenceLogin\Loggin.disco" />
     <None Include="Connected Services\ServiceReferenceLogin\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReferenceLogin\configuration.svcinfo" />
     <None Include="Connected Services\ServiceReferenceLogin\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceReferenceAnnonser\ServiceAdvertising.disco" />
+    <None Include="Connected Services\ServiceReferenceAnnonser\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceAnnonser\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceAnnonser\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -175,6 +201,11 @@
       <DependentUpon>Annonser.edmx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\ServiceReferenceAnnonser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReferenceLogin\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +279,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceAnnonser\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceLogin\" />
   </ItemGroup>
   <PropertyGroup>
