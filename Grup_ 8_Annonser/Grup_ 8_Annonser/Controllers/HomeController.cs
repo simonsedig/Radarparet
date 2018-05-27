@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿using Grup__8_Annonser.ServiceReferenceAnnonser;
+=======
 ﻿using Grup__8_Annonser.ServiceReferenceAdvertising;
+>>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,25 +37,34 @@ namespace Grup__8_Annonser.Controllers
 
         public ActionResult Read()
         {
+<<<<<<< HEAD
+            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+=======
             List<ServiceReferenceAdvertising.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
+>>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
             return View(x);
         }
 
         public ActionResult Update(int? id)
         {
-            if (id == null)
-            {
-                return RedirectToAction("Read");
-            }
+            //if (id == null)
+            //{
+            //    return RedirectToAction("Read");
+            //}
 
+<<<<<<< HEAD
+            ServiceReferenceAnnonser.Annonser Update = ServiceAnnons.GetAnnonsId(id);
+            return View(Update);
+=======
             Annons Update;
             return View(/*Update*/);
+>>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
         }
 
         [HttpPost]
-        public ActionResult Update(Annons Update)
+        public ActionResult Update(ServiceReferenceAnnonser.Annonser Update)
         {
-            //ServiceAnnons.UpdateAnnons(Update);
+            ServiceAnnons.UpdateAnnons(Update);
             return RedirectToAction("Read");
         }
 
@@ -62,14 +75,14 @@ namespace Grup__8_Annonser.Controllers
                 return RedirectToAction("Read");
             }
 
-            //Annons Delete = ServiceAnnons.RndAnnonser(id);
-            return View(/*Delete*/); 
+            ServiceReferenceAnnonser.Annonser Delete = ServiceAnnons.GetAnnonsId(id);
+            return View(Delete); 
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            //ServiceAnnons.DeleteAnnons(id);
+            ServiceAnnons.DeleteAnnons(id);
             return RedirectToAction("Read");
         }
 
