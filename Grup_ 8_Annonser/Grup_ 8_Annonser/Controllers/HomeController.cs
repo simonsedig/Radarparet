@@ -1,27 +1,19 @@
-<<<<<<< HEAD
-﻿using Grup__8_Annonser.ServiceReferenceAnnonser;
-=======
-﻿using Grup__8_Annonser.ServiceReferenceAdvertising;
->>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
+using Grup__8_Annonser.ServiceReferenceAnnonser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Grup__8_Annonser.Controllers
 {
     public class HomeController : Controller
     {
         //Genererar en klass från en entitet
-        LoginDBEntities LoginDB = new LoginDBEntities();
-        ServiceAdvertisingClient ServiceAnnons = new ServiceAdvertisingClient();
-
-        // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+        Models.LoginModel Login = new Models.LoginModel();
+        Models.AnnonsControllKlass AnnonsModel = new Models.AnnonsControllKlass();
+        ServiceAdvertisingClient ServiceAnnons = new ServiceReferenceAnnonser.ServiceAdvertisingClient();
 
         public ActionResult Create()
         {
@@ -29,19 +21,15 @@ namespace Grup__8_Annonser.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string Resurs, string HooverText)
+        public ActionResult Create(ServiceReferenceAnnonser.AnnonsKlass Model)
         {
-            ServiceAnnons.CreateAnnons(Resurs, HooverText);
+            ServiceAnnons.CreateAnnons(Model.resource, Model.onHooverText);
             return RedirectToAction("Read");
         }
 
         public ActionResult Read()
         {
-<<<<<<< HEAD
             List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
-=======
-            List<ServiceReferenceAdvertising.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
->>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
             return View(x);
         }
 
@@ -51,14 +39,8 @@ namespace Grup__8_Annonser.Controllers
             //{
             //    return RedirectToAction("Read");
             //}
-
-<<<<<<< HEAD
             ServiceReferenceAnnonser.Annonser Update = ServiceAnnons.GetAnnonsId(id);
             return View(Update);
-=======
-            Annons Update;
-            return View(/*Update*/);
->>>>>>> 3168f486acee55785786224a4155dfbc8ef7bb27
         }
 
         [HttpPost]
@@ -70,10 +52,10 @@ namespace Grup__8_Annonser.Controllers
 
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return RedirectToAction("Read");
-            }
+            //if (id == null)
+            //{
+            //    return RedirectToAction("Read");
+            //}
 
             ServiceReferenceAnnonser.Annonser Delete = ServiceAnnons.GetAnnonsId(id);
             return View(Delete); 
@@ -86,54 +68,85 @@ namespace Grup__8_Annonser.Controllers
             return RedirectToAction("Read");
         }
 
-        public ActionResult Login()
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
+
+        ////Skapar inloggning som är kopplad till en databas
+        //// taget från exempel .asp hv
+        //// skapa inloggning via db
+        //[HttpPost]
+        //public ActionResult Login(Models.LoginModel thisLogin)
+        //{
+        //    if (thisLogin.Username == null || thisLogin.Password == null)
+        //    {
+        //        ModelState.AddModelError("", "Du har inte fyllt in fälten");
+        //        return View();
+        //    }
+
+        //    bool validUser = false;
+
+        //    validUser = CheckUser(thisLogin.Username, thisLogin.Password);
+
+        //    if (validUser == true)
+        //    {
+        //        System.Web.Security.FormsAuthentication.RedirectFromLoginPage(thisLogin.Username, false);
+        //    }
+        //    ModelState.AddModelError("", "Fel inloggning");
+        //    return View();
+        //}
+
+        //private bool CheckUser(string username, string password)
+        //{
+        //    //LINQ method
+        //    var anvandare = from rows in LoginDB.Users
+        //                    where rows.Username.ToUpper() == username.ToUpper()
+        //                    && rows.Password == password
+        //                    select rows;
+
+        //    // if inlog success, skicka sant. annars falsk
+        //    if (anvandare.Count() == 1)
+        //    {
+        //        var user = anvandare.FirstOrDefault();
+        //        Session["thisLogin"] = 1;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        ServiceReferenceLogin.LogginClient loggain = new ServiceReferenceLogin.LogginClient();
+        public ActionResult Index()
         {
             return View();
         }
-
-        //Skapar inloggning som är kopplad till en databas
-        // taget från exempel .asp hv
-        // skapa inloggning via db H
         [HttpPost]
-        public ActionResult Login(Models.LoginModel thisLogin)
+        public ActionResult Index(Models.LoginModel login)
         {
-            if (thisLogin.Username == null || thisLogin.Password == null)
+            if (login.Username == null || login.Password == null)
             {
-                ModelState.AddModelError("", "Du har inte fyllt in fälten");
+                ModelState.AddModelError("", "Fyll i användarnamn, lösenord");
                 return View();
             }
 
-            bool validUser = false;
+            string CurrentUser = loggain.GetLoginData(login.Username, login.Password, "KodAnno");
 
-            validUser = CheckUser(thisLogin.Username, thisLogin.Password);
-
-            if (validUser == true)
+            if (CurrentUser != "")
             {
-                System.Web.Security.FormsAuthentication.RedirectFromLoginPage(thisLogin.Username, false);
+                System.Web.Security.FormsAuthentication.RedirectFromLoginPage(login.Username, false);
+                return RedirectToAction("Read", "Home");
             }
-            ModelState.AddModelError("", "Fel inloggning");
+            ModelState.AddModelError("", "Felaktig inloggning");
             return View();
         }
-
-        private bool CheckUser(string username, string password)
+        public ActionResult LogOut()
         {
-            //LINQ method
-            var anvandare = from rows in LoginDB.Users
-                            where rows.Username.ToUpper() == username.ToUpper()
-                            && rows.Password == password
-                            select rows;
-
-            // if inlog success, skicka sant. annars falsk
-            if (anvandare.Count() == 1)
-            {
-                var user = anvandare.FirstOrDefault();
-                Session["thisLogin"] = 1;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            FormsAuthentication.SignOut();
+            Session.Abandon(); //rensar sessionen vid slutet av requesten
+            return RedirectToAction("Index", "Home");
         }
 
     }

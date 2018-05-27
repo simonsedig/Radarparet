@@ -4,12 +4,13 @@
 }
 
 <h1>Delete</h1>
-Skriver ut all data från databasen genom en "foreach"
+@*Skriver ut all data från databasen genom en "foreach"*@
 Resurs: <br />
 @Html.DisplayFor(m => Model.resource)<br />
 onHooverText: <br />
 @Html.DisplayFor(m => Model.onHooverText)<br />
+
 @using (Html.BeginForm())
 {
-          <input type="submit" value="Radera" />
+        <button type="button" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" class="btn btn-default">Radera</button>
 }

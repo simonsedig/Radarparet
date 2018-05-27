@@ -15,6 +15,20 @@ namespace AdvertisingService
         {
         }
 
+        string IServiceAdvertising.DoILive()
+        {
+            string returnDate = null;
+            try
+            {
+                returnDate = DateTime.Now.ToString("HH:mm:ss");
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return returnDate;
+        }
+
         AdvertisingService.Annonser IServiceAdvertising.GetAnnonsId(int? id)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
@@ -56,6 +70,7 @@ namespace AdvertisingService
                     AnnonsKlass x = new AnnonsKlass();
                     x.resource = rad.resources;
                     x.onHooverText = rad.onHooverText;
+                    x.addId = rad.addId.ToString();
                     AnnonsList.Add(x);
                 }
                 return AnnonsList.ToArray();

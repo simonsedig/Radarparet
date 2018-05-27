@@ -4,15 +4,18 @@
 }
 
 <h1>Read annons</h1>
-Skriver ut all data från databasen genom en "foreach"
+@*Skriver ut all data från databasen genom en "foreach"*@
 @foreach (var item in Model)
 {
-<tr>
-    <td><p>Annons: @item.resource</p></td>
-    <td>Hoovertext: @item.onHooverText</td>
-    <td>@Html.ActionLink("Radera", "Delete", new { id = item.addId })</td>
-    <td>@Html.ActionLink("Uppdatera", "Update", new { id = item.addId })</td>
-</tr>
+<table>
+    <tr>
+        <td><p>Annons: @item.resource</p></td>
+        <td>Hoovertext: @item.onHooverText</td>
+        <td>@Html.ActionLink("Radera", "Delete", new { id = item.addId })</td>
+        <td>@Html.ActionLink("Uppdatera", "Update", new { id = item.addId })</td>
+    </tr>
+</table>
+
 
 }
 
