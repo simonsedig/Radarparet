@@ -42,10 +42,6 @@ namespace Grup__8_Annonser.Controllers
 
         public ActionResult Update(int? id)
         {
-            //if (id == null)
-            //{
-            //    return RedirectToAction("Read");
-            //}
             ServiceReferenceAnnonser.AnnonsKlass Update = ServiceAnnons.GetAnnonsId(id);
             return View(Update);
         }
@@ -59,11 +55,6 @@ namespace Grup__8_Annonser.Controllers
 
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return RedirectToAction("Read");
-            //}
-
             ServiceReferenceAnnonser.AnnonsKlass Delete = ServiceAnnons.GetAnnonsId(id);
             return View(Delete); 
         }
