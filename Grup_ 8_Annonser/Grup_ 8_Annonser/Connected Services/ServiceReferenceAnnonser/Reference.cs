@@ -106,17 +106,17 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/DoILive", ReplyAction="http://tempuri.org/IServiceAdvertising/DoILiveResponse")]
         System.Threading.Tasks.Task<string> DoILiveAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/RndAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse")]
+        Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass RndAnnons();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/RndAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse")]
+        System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> RndAnnonsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId", ReplyAction="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse")]
         Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass GetAnnonsId(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId", ReplyAction="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse")]
         System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> GetAnnonsIdAsync(System.Nullable<int> id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/RndAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse")]
-        string[] RndAnnons(int p);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/RndAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse")]
-        System.Threading.Tasks.Task<string[]> RndAnnonsAsync(int p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAdvertising/ReadAnnons", ReplyAction="http://tempuri.org/IServiceAdvertising/ReadAnnonsResponse")]
         Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass[] ReadAnnons();
@@ -186,20 +186,20 @@ namespace Grup__8_Annonser.ServiceReferenceAnnonser {
             return base.Channel.DoILiveAsync();
         }
         
+        public Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass RndAnnons() {
+            return base.Channel.RndAnnons();
+        }
+        
+        public System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> RndAnnonsAsync() {
+            return base.Channel.RndAnnonsAsync();
+        }
+        
         public Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass GetAnnonsId(System.Nullable<int> id) {
             return base.Channel.GetAnnonsId(id);
         }
         
         public System.Threading.Tasks.Task<Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass> GetAnnonsIdAsync(System.Nullable<int> id) {
             return base.Channel.GetAnnonsIdAsync(id);
-        }
-        
-        public string[] RndAnnons(int p) {
-            return base.Channel.RndAnnons(p);
-        }
-        
-        public System.Threading.Tasks.Task<string[]> RndAnnonsAsync(int p) {
-            return base.Channel.RndAnnonsAsync(p);
         }
         
         public Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass[] ReadAnnons() {
