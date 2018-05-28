@@ -219,5 +219,3 @@ C:\Users\Administratör.WIN-R6PLQ5TLLIV\Documents\GitHub\Radarparet\Grup_ 8_Anno
 C:\Users\Administratör.WIN-R6PLQ5TLLIV\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CopyComplete
 C:\Users\Administratör.WIN-R6PLQ5TLLIV\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.dll
 C:\Users\Administratör.WIN-R6PLQ5TLLIV\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.pdb
-C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CoreCompileInputs.cache
-C:\Users\Simon\Documents\GitHub\Radarparet\Grup_ 8_Annonser\Grup_ 8_Annonser\obj\Debug\Grup_ 8_Annonser.csproj.CopyComplete

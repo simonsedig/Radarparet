@@ -29,6 +29,28 @@ namespace AdvertisingService
             return returnDate;
         }
 
+        AdvertisingService.AnnonsKlass IServiceAdvertising.RndAnnons()
+        {
+            using (var DBA = new Grupp8_AnnonserEntities())
+            {
+                var GetListFromDB = from y in DBA.Annonsers
+                                    select y;
+                List<AnnonsKlass> AnnonsList = new List<AnnonsKlass>();
+
+                foreach (var rad in GetListFromDB)
+                {
+                    AnnonsKlass x = new AnnonsKlass();
+                    x.resource = rad.resources;
+                    x.onHooverText = rad.onHooverText;
+                    x.addId = rad.addId;
+                    AnnonsList.Add(x);
+                }
+                var rndindex = new Random().Next(AnnonsList.Count);
+                AnnonsKlass t = AnnonsList[rndindex];
+                return t;
+            }
+        }
+
         AdvertisingService.AnnonsKlass IServiceAdvertising.GetAnnonsId(int? id)
         {
             Grupp8_AnnonserEntities db = new Grupp8_AnnonserEntities();
@@ -40,27 +62,6 @@ namespace AdvertisingService
                 onHooverText = item.onHooverText
         };
             return GetAnnonsAnnons;
-        }
-
-        List<string> IServiceAdvertising.RndAnnons(int p)
-        {
-            Grupp8_AnnonserEntities dbAnnons = new Grupp8_AnnonserEntities();
-            List<string> ListAnnons = new List<string>();
-            int i = 0;
-
-            using (var DBA = new Grupp8_AnnonserEntities())
-            {
-                var GetListFromDB = from y in DBA.Annonsers
-                                    select y;
-
-                foreach (var rad in GetListFromDB)
-                {
-                    AnnonsKlass x = new AnnonsKlass();
-                    ListAnnons[i] = rad.ToString();
-                    i++;
-                }
-            }
-            return ListAnnons;
         }
 
         AnnonsKlass[] IServiceAdvertising.ReadAnnons()

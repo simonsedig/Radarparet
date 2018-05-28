@@ -16,9 +16,9 @@ namespace AdvertisingService
         [OperationContract]
         string DoILive();
         [OperationContract]
-        AdvertisingService.AnnonsKlass GetAnnonsId(int? id);
+        AdvertisingService.AnnonsKlass RndAnnons();
         [OperationContract]
-        List<string> RndAnnons(int p);
+        AdvertisingService.AnnonsKlass GetAnnonsId(int? id);
         [OperationContract]
         AnnonsKlass[] ReadAnnons();
         [OperationContract]

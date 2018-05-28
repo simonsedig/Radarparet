@@ -22,12 +22,11 @@
     <MetadataSource Address="Http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc " Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceAdvertising.xsd" MetadataType="Schema" ID="9fe61236-7711-46c5-bd85-cfe88c3587fd" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServiceAdvertising1.xsd" MetadataType="Schema" ID="590db133-f606-47ab-baf9-63c045457710" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd2" />
     <MetadataFile FileName="ServiceAdvertising2.xsd" MetadataType="Schema" ID="e1fec2a0-2fa3-4804-b14d-c84c3625a1ae" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceAdvertising3.xsd" MetadataType="Schema" ID="dfa584da-d804-4df8-8217-dc3127c17e50" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd3" />
     <MetadataFile FileName="ServiceAdvertising.wsdl" MetadataType="Wsdl" ID="0aa329c2-3252-4e0f-a364-da5cf6004b18" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?wsdl" />
+    <MetadataFile FileName="ServiceAdvertising1.xsd" MetadataType="Schema" ID="590db133-f606-47ab-baf9-63c045457710" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd2" />
     <MetadataFile FileName="ServiceAdvertising.disco" MetadataType="Disco" ID="a5665b5f-f761-4e10-abae-64976bef7e35" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?disco" />
+    <MetadataFile FileName="ServiceAdvertising.xsd" MetadataType="Schema" ID="9fe61236-7711-46c5-bd85-cfe88c3587fd" SourceId="1" SourceUrl="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

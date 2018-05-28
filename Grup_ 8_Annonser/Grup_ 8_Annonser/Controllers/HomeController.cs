@@ -18,8 +18,8 @@ namespace Grup__8_Annonser.Controllers
         {
             List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
             var rndindex = new Random().Next(x.Count);
-            AnnonsKlass hej = x[rndindex];
-            return View(hej);
+            AnnonsKlass y = x[rndindex];
+            return View(ServiceAnnons.RndAnnons());
         }
 
         public ActionResult Create()

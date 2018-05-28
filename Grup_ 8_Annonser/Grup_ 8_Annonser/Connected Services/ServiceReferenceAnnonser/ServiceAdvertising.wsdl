@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AdvertisingService" />
-      <xsd:import schemaLocation="http://193.10.202.78/AdvertisingService/ServiceAdvertising.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceAdvertising_DoWork_InputMessage">
@@ -20,17 +19,17 @@
   <wsdl:message name="IServiceAdvertising_DoILive_OutputMessage">
     <wsdl:part name="parameters" element="tns:DoILiveResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceAdvertising_GetAnnonsId_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnnonsId" />
-  </wsdl:message>
-  <wsdl:message name="IServiceAdvertising_GetAnnonsId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnnonsIdResponse" />
-  </wsdl:message>
   <wsdl:message name="IServiceAdvertising_RndAnnons_InputMessage">
     <wsdl:part name="parameters" element="tns:RndAnnons" />
   </wsdl:message>
   <wsdl:message name="IServiceAdvertising_RndAnnons_OutputMessage">
     <wsdl:part name="parameters" element="tns:RndAnnonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAdvertising_GetAnnonsId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonsId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAdvertising_GetAnnonsId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonsIdResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceAdvertising_ReadAnnons_InputMessage">
     <wsdl:part name="parameters" element="tns:ReadAnnons" />
@@ -65,13 +64,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAdvertising/DoILive" message="tns:IServiceAdvertising_DoILive_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAdvertising/DoILiveResponse" message="tns:IServiceAdvertising_DoILive_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAnnonsId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId" message="tns:IServiceAdvertising_GetAnnonsId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse" message="tns:IServiceAdvertising_GetAnnonsId_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="RndAnnons">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAdvertising/RndAnnons" message="tns:IServiceAdvertising_RndAnnons_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAdvertising/RndAnnonsResponse" message="tns:IServiceAdvertising_RndAnnons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonsId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceAdvertising/GetAnnonsId" message="tns:IServiceAdvertising_GetAnnonsId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceAdvertising/GetAnnonsIdResponse" message="tns:IServiceAdvertising_GetAnnonsId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReadAnnons">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAdvertising/ReadAnnons" message="tns:IServiceAdvertising_ReadAnnons_InputMessage" />
@@ -110,8 +109,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAnnonsId">
-      <soap:operation soapAction="http://tempuri.org/IServiceAdvertising/GetAnnonsId" style="document" />
+    <wsdl:operation name="RndAnnons">
+      <soap:operation soapAction="http://tempuri.org/IServiceAdvertising/RndAnnons" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -119,8 +118,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RndAnnons">
-      <soap:operation soapAction="http://tempuri.org/IServiceAdvertising/RndAnnons" style="document" />
+    <wsdl:operation name="GetAnnonsId">
+      <soap:operation soapAction="http://tempuri.org/IServiceAdvertising/GetAnnonsId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
