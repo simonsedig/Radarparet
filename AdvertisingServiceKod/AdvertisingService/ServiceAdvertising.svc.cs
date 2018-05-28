@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using AdvertisingService.Logs;
 using System.ServiceModel;
 using System.Text;
 
@@ -17,6 +18,7 @@ namespace AdvertisingService
 
         string IServiceAdvertising.DoILive()
         {
+            Log log = new Log();
             string returnDate = null;
             try
             {
@@ -24,7 +26,7 @@ namespace AdvertisingService
             }
             catch(Exception ex)
             {
-                
+                log.CreateLogFile(ex.Message);
             }
             return returnDate;
         }

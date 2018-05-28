@@ -12,6 +12,6 @@ onHooverText: <br />
 
 @using (Html.BeginForm())
 {
-    <button type="button" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" class="btn btn-default">Radera</button>
-    <input name="confirmButton" type="submit" value="Delete" />
+    @*<button type="button"  class="btn btn-default">Radera</button>*@
+    <button name="confirmButton" type="submit" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" >Radera</button>
 }

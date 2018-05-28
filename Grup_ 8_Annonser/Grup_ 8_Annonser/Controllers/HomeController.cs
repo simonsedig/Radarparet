@@ -14,14 +14,14 @@ namespace Grup__8_Annonser.Controllers
         Models.LoginModel Login = new Models.LoginModel();
         ServiceAdvertisingClient ServiceAnnons = new ServiceReferenceAnnonser.ServiceAdvertisingClient();
 
-        public ActionResult rndAnnons()
+        [Authorize]
+        public ActionResult RndAnnons()
         {
-            List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
-            var rndindex = new Random().Next(x.Count);
-            AnnonsKlass y = x[rndindex];
+            ServiceAnnons.DoILive();
             return View(ServiceAnnons.RndAnnons());
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -34,12 +34,14 @@ namespace Grup__8_Annonser.Controllers
             return RedirectToAction("Read");
         }
 
+        [Authorize]
         public ActionResult Read()
         {
             List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
             return View(x);
         }
 
+        [Authorize]
         public ActionResult Update(int? id)
         {
             ServiceReferenceAnnonser.AnnonsKlass Update = ServiceAnnons.GetAnnonsId(id);
@@ -53,6 +55,7 @@ namespace Grup__8_Annonser.Controllers
             return RedirectToAction("Read");
         }
 
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             ServiceReferenceAnnonser.AnnonsKlass Delete = ServiceAnnons.GetAnnonsId(id);
