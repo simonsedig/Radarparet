@@ -1,0 +1,24 @@
+﻿@model Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass
+@{
+    ViewBag.Title = "Update";
+}
+
+<h1>Uppdatera annons</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => Model.addId)
+    <table>
+        <tr>
+            <th>
+                Ange den annons du vill lägga till:
+                @Html.EditorFor(m => Model.resource)
+                <br />
+                Ange vad för hoovertext som skall vara kopplad till din annons:
+                @Html.EditorFor(m => Model.onHooverText)
+            </th>
+        </tr>
+    </table>
+    <br /><br />
+    <button type="submit">Uppdatera annons</button>}
+

@@ -1,0 +1,24 @@
+﻿@model Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass
+@{
+
+    ViewBag.Title = "Create";
+}
+
+<h1>Skapa annons</h1>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+
+            <th>
+                Ange den annons du vill lägga till:
+                @Html.EditorFor(m => Model.resource, new { htmlAttributes = new { placeholder = "resource" } })
+                <br />
+                Ange vad för hoovertext som skall vara kopplad till din annons:
+                @Html.EditorFor(m => Model.onHooverText, new { htmlAttributes = new { placeholder = "onHooverText" } })
+            </th>
+        </tr>
+    </table>
+    <br /><br />
+    <button type="submit">Lägg in ditt val</button>}

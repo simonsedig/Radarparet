@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LoginDBEntities-Web.config Connection String" description="LoginDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Login.csdl|res://*/Login.ssdl|res://*/Login.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\LoginDB.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Simon\\Documents\\GitHub\\Radarparet\\Grup_\ 8_Annonser\\Grup_\ 8_Annonser\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LoginDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="Grupp8_AnnonserEntities-Web.config Connection String" description="Grupp8_AnnonserEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Annonser.csdl|res://*/Annonser.ssdl|res://*/Annonser.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\Grupp8_Annonser.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Simon\\Documents\\GitHub\\Radarparet\\Grup_\ 8_Annonser\\Grup_\ 8_Annonser\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Grupp8_AnnonserEntities']/@connectionString" />
+  </parameter>
+</parameters>

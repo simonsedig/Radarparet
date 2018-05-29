@@ -1,0 +1,19 @@
+﻿@model Grup__8_Annonser.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!--Används utav LINQ för att koppla upp till databas-->
+@using (Html.BeginForm())
+{
+    <div>
+        <p>Användarnamn: <br /></p>
+        @Html.TextBoxFor(m => m.Username)<br />
+        <p>Lösenord: <br /></p>
+        @Html.PasswordFor(m => m.Password)<br />
+        <button type="submit">Logga in</button><br />
+        @Html.ValidationSummary("")
+    </div>
+}
