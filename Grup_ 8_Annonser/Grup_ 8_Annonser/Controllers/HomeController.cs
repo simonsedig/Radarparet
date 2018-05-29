@@ -17,7 +17,6 @@ namespace Grup__8_Annonser.Controllers
         [Authorize]
         public ActionResult RndAnnons()
         {
-            ServiceAnnons.DoILive();
             return View(ServiceAnnons.RndAnnons());
         }
 
