@@ -1,4 +1,5 @@
-﻿@model Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass
+﻿@*Kopplar html till annonsklass*@
+@model Grup__8_Annonser.ServiceReferenceAnnonser.AnnonsKlass
 @{
 
     ViewBag.Title = "Create";
@@ -6,11 +7,11 @@
 
 <h1>Skapa annons</h1>
 
+@*Skapar en form som tillåter dig att skapa nya annonser*@
 @using (Html.BeginForm())
 {
     <table>
         <tr>
-
             <th>
                 Ange den annons du vill lägga till:
                 @Html.EditorFor(m => Model.resource, new { htmlAttributes = new { placeholder = "resource" } })
@@ -21,4 +22,5 @@
         </tr>
     </table>
     <br /><br />
+    //En knapp som "submitar" din nyskapade annons och skickar in den i databasen genom en service i controller
     <button type="submit">Lägg in ditt val</button>}

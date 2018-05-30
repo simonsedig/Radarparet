@@ -17,6 +17,7 @@ namespace Grup__8_Annonser.Controllers
         [Authorize]
         public ActionResult RndAnnons()
         {
+            //Gör det möjligt för användaren att testa rndAnnons funktionen
             return View(ServiceAnnons.RndAnnons());
         }
 
@@ -29,6 +30,7 @@ namespace Grup__8_Annonser.Controllers
         [HttpPost]
         public ActionResult Create(ServiceReferenceAnnonser.AnnonsKlass Model)
         {
+            //Skickar in värdena som annonsen ska ha. Id skapas automatiskt
             ServiceAnnons.CreateAnnons(Model.resource, Model.onHooverText);
             return RedirectToAction("Read");
         }
@@ -36,6 +38,7 @@ namespace Grup__8_Annonser.Controllers
         [Authorize]
         public ActionResult Read()
         {
+            //Tar in annnonserna i en lista, skickar listan till html
             List<ServiceReferenceAnnonser.AnnonsKlass> x = ServiceAnnons.ReadAnnons().ToList();
             return View(x);
         }
@@ -43,6 +46,7 @@ namespace Grup__8_Annonser.Controllers
         [Authorize]
         public ActionResult Update(int? id)
         {
+            //Läser in id för att hitta rätt annons att uppdatera
             ServiceReferenceAnnonser.AnnonsKlass Update = ServiceAnnons.GetAnnonsId(id);
             return View(Update);
         }
@@ -50,6 +54,7 @@ namespace Grup__8_Annonser.Controllers
         [HttpPost]
         public ActionResult Update(ServiceReferenceAnnonser.AnnonsKlass Update)
         {
+            //Uppdaterar den valda annonsen och sedan skickas man tilbaka till "Read"
             ServiceAnnons.UpdateAnnons(Update);
             return RedirectToAction("Read");
         }
@@ -57,6 +62,7 @@ namespace Grup__8_Annonser.Controllers
         [Authorize]
         public ActionResult Delete(int? id)
         {
+            //Raderar en annons
             ServiceReferenceAnnonser.AnnonsKlass Delete = ServiceAnnons.GetAnnonsId(id);
             return View(Delete); 
         }
@@ -64,6 +70,7 @@ namespace Grup__8_Annonser.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            //Läser in den annons man vill radera genom ett id som skickas med
             ServiceAnnons.DeleteAnnons(id);
             return RedirectToAction("Read");
         }
@@ -76,6 +83,7 @@ namespace Grup__8_Annonser.Controllers
         [HttpPost]
         public ActionResult Index(Models.LoginModel login)
         {
+            //Checkar om inloggningen sker korrekt för att sedan få tillgång till sidan
             if (login.Username == null || login.Password == null)
             {
                 ModelState.AddModelError("", "Fyll i användarnamn, lösenord");
