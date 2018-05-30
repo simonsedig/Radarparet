@@ -3,15 +3,25 @@
     ViewBag.Title = "Delete";
 }
 
-<h1>Delete</h1>
-@*Skriver ut all data från databasen genom en "foreach"*@
-Resurs: <br />
-@Html.DisplayFor(m => Model.resource)<br />
-onHooverText: <br />
-@Html.DisplayFor(m => Model.onHooverText)<br />
+<h1>Radera</h1>
+
+
+<table>
+    <tr>
+        <th>Resurs: </th>
+        <th>Hoover-text: </th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(m => Model.resource)</td>
+        <td>@Html.DisplayFor(m => Model.onHooverText)</td>
+    </tr>
+
+</table>
+
+<br />
 
 @using (Html.BeginForm())
 {
     @*<button type="button"  class="btn btn-default">Radera</button>*@
-    <button name="confirmButton" type="submit" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'" >Radera</button>
+    <button name="confirmButton" type="submit" onclick="location.href='@Url.Action("Delete", new { id = Model.addId })'">Radera</button>
 }
