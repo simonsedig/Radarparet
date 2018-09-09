@@ -15,7 +15,7 @@ namespace Hospital1
             bool appRunning = true;
 
             // create object reference to hospital to store patients   
-            Business business = new Business();
+            Business business = new Business();         
 
             // create person
             Patient patient0 = new Patient();
@@ -43,43 +43,44 @@ namespace Hospital1
                 // clear any *junk* of previous use of this service
                 Console.Clear();
 
-
-                // read user input and check if input is an integer
-            try
-                {
-
                 // call method which welcomes user
                 WelcomeUser();
 
                 // read input from user
                 int answer = int.Parse(Console.ReadLine());
 
-                // use an -if to take user to his desired service, will call method based on answer
-
+                // use an -if to take user to users desired service, will call method based on answer
 
                 if (answer == 1)
                 {
                     // show all patients
                     foreach (var p in business.patients)
                     {
+                        Console.WriteLine("-------------------------------");
 
-                            Console.WriteLine(p.firstName);
-                            Console.WriteLine(p.lastName);
-                            Console.WriteLine(p.age);
+                        Console.WriteLine($"First name: {p.firstName}");
+                        Console.WriteLine($"Last name: {p.lastName}");
+                        Console.WriteLine($"Age: {p.age}");
 
                         // write conditions with loop
-                        Console.WriteLine("Current conditions: ");
+                        Console.WriteLine("\nCurrent conditions: ");
 
-                        foreach (var item in patient1.conditions)
+                        // write out for the patients
+                        for (int i = 0; i < 4; i++)
                         {
-                            Console.Write($"{item}, ");
+                            Console.Write($"{p.conditions[i]}, ");
                         }
+                                                                       
                         // create space after loop - readabillity
-                        Console.WriteLine();
+                        Console.WriteLine("\n");
 
-                            Console.WriteLine(p.currentHospital);
-                            Console.WriteLine("\n");                      
+                        Console.WriteLine($"Current hospital: {p.currentHospital}");
+
+                        Console.WriteLine("-------------------------------");
+
+                        Console.WriteLine("\n");                      
                     }
+
                     // allow user to read
                     ActionComplete();
                 }
@@ -104,15 +105,6 @@ namespace Hospital1
                 {
                     // do nothing, catch-block will catch errors
                 }
-            }
-
-            catch
-            {
-                Console.WriteLine("Input was not a valid entry, use numbers. Press 'Enter' to return to the main menu.");
-
-                // let user see the message by placing a readline under, so user has to interact to return to main menu
-                Console.ReadLine();
-            }
 
             }
 
@@ -246,7 +238,7 @@ namespace Hospital1
 
         public class Business
         {
-            public Patient[] patients = new Patient[10];
+            public Patient[] patients = new Patient[5];
             public string hospitalName = "Sacred Heart";
             public string adress = "12629 Riverside Drive"; 
             public string city = "North Hollywood";
