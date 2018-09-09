@@ -12,3 +12,10 @@ C:\Users\Jonte\Desktop\Hospital1\Hospital1\obj\Debug\Hospital1.csprojAssemblyRef
 C:\Users\Jonte\Desktop\Hospital1\Hospital1\obj\Debug\Hospital1.csproj.CoreCompileInputs.cache
 C:\Users\Jonte\Desktop\Hospital1\Hospital1\obj\Debug\Hospital1.exe
 C:\Users\Jonte\Desktop\Hospital1\Hospital1\obj\Debug\Hospital1.pdb
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\bin\Debug\Hospital1.exe.config
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\bin\Debug\Hospital1.exe
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\bin\Debug\Hospital1.pdb
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\obj\Debug\Hospital1.csprojAssemblyReference.cache
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\obj\Debug\Hospital1.csproj.CoreCompileInputs.cache
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\obj\Debug\Hospital1.exe
+C:\Users\Simon\Documents\GitHub\Radarparet\Hospital1\Hospital1\obj\Debug\Hospital1.pdb

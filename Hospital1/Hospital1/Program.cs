@@ -11,12 +11,13 @@ namespace Hospital1
     {
         static void Main(string[] args)
         {
-            //Application is running
+            // application is running
             bool appRunning = true;
             while (appRunning)
             {
                 // create object reference to hospital to store patients
                 Business myHospital = new Business();
+                //myHospital.patients = new Patient[10];
 
                 // clear any *junk* of previous use of this service
                 Console.Clear();
@@ -42,20 +43,21 @@ namespace Hospital1
                             myHospital.patients[i] = CreatePatient();
 
                             Console.WriteLine("New patient created!");
-
-                            // allow user to read
-                            ActionComplete();
                         }
                         else
                         {
                             // do nothing, continue to find spots with loop
                         }
-                    }                   
+                    }
+
+                    // allow user to read
+                    ActionComplete();
+
                 }
 
                 else if (answer == 2)
                 {
-                    // all patients -> SHOW ARRAY SPOT as "id" and then first and last name and age???
+                    // show all patients
                     foreach (var p in myHospital.patients)
                     {
                         Console.WriteLine(p.firstName);
@@ -74,6 +76,7 @@ namespace Hospital1
                 {
                     try
                     {
+                        int PatientCount = CountPatients(myHospital.patients);
                         Console.WriteLine("Which patient do you want to delete? Enter array spot!");
 
                         // fetch user input
@@ -84,6 +87,8 @@ namespace Hospital1
 
                         // display patient deleted for user
                         Console.WriteLine($"Patient has now been dismissed!");     // patient.Fname patient.Lname has been deleted! ??? maybe if possible
+                        Console.WriteLine("The number of patients before 'delete patient' : " + PatientCount); // display number of patients before delete patient
+                        Console.WriteLine("The number of patients after 'delete patient' : " + CountPatients(ref PatientCount)); // display number of patients after delete patient
 
                         // allow user to read
                         ActionComplete();
@@ -224,10 +229,9 @@ namespace Hospital1
             // list options...
             Console.WriteLine("1. Create patient");
             Console.WriteLine("2. List patients");
-            Console.WriteLine("3. Create patient");
-            Console.WriteLine("2. List patients");
-            Console.WriteLine("1. Create patient");
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("3. Delete patient");
+            Console.WriteLine("4. Transfer patients");
+            Console.WriteLine("5. Exit");
         }
 
         static void ActionComplete()
@@ -237,6 +241,18 @@ namespace Hospital1
             Console.ReadLine();
         }
 
+        //Counts the amount of patients in the hospital
+        static int CountPatients(Patient[] x)
+        {
+            return x.Length;
+        }
+
+        //CountPatients with ref argument makes permanent changes to x variable to keep track of the patients
+        static int CountPatients(ref int x)
+        {
+            x -= 1;
+            return x;
+        }
     }
 }
 
@@ -253,9 +269,9 @@ namespace Hospital1
 
         public class Business
         {
-            public Patient[] patients { get; set; }
+            public Patient[] patients = new Patient[10];
             public string hospitalName = "Sacred Heart";
-            public string adress = "12629 Riverside Drive";
+            public string adress = "12629 Riverside Drive"; 
             public string city = "North Hollywood";
             public int employees = 50;
         }
