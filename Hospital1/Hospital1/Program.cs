@@ -13,19 +13,41 @@ namespace Hospital1
         {
             // application is running
             bool appRunning = true;
-            while (appRunning)
-            {
-                // create object reference to hospital to store patients
-                Business myHospital = new Business();
-                //myHospital.patients = new Patient[10];
 
+            // create object reference to hospital to store patients   
+            Business business = new Business();
+
+            // create person
+            Patient patient0 = new Patient();
+            Patient patient1 = new Patient();
+            Patient patient2 = new Patient();
+            Patient patient3 = new Patient();
+            Patient patient4 = new Patient();
+
+            // call method to assign attibutes to patients
+            CreatePatient(patient0);
+            CreatePatient(patient1);
+            CreatePatient(patient2);
+            CreatePatient(patient3);
+            CreatePatient(patient4);
+
+            // put patient in business - patients array
+            business.patients[0] = patient0;
+            business.patients[1] = patient1;
+            business.patients[2] = patient2;
+            business.patients[3] = patient3;
+            business.patients[4] = patient4;
+
+            while (appRunning)
+            {                     
                 // clear any *junk* of previous use of this service
                 Console.Clear();
 
 
                 // read user input and check if input is an integer
-                // try
-                //  {       
+            try
+                {
+
                 // call method which welcomes user
                 WelcomeUser();
 
@@ -33,73 +55,36 @@ namespace Hospital1
                 int answer = int.Parse(Console.ReadLine());
 
                 // use an -if to take user to his desired service, will call method based on answer
+
+
                 if (answer == 1)
                 {
-                    // check for spots for patient
-                    for (int i = 0; i < myHospital.patients.Length; i++)
+                    // show all patients
+                    foreach (var p in business.patients)
                     {
-                        if (myHospital.patients[i] == null)
-                        {
-                            myHospital.patients[i] = CreatePatient();
 
-                            Console.WriteLine("New patient created!");
-                        }
-                        else
+                            Console.WriteLine(p.firstName);
+                            Console.WriteLine(p.lastName);
+                            Console.WriteLine(p.age);
+
+                        // write conditions with loop
+                        Console.WriteLine("Current conditions: ");
+
+                        foreach (var item in patient1.conditions)
                         {
-                            // do nothing, continue to find spots with loop
+                            Console.Write($"{item}, ");
                         }
+                        // create space after loop - readabillity
+                        Console.WriteLine();
+
+                            Console.WriteLine(p.currentHospital);
+                            Console.WriteLine("\n");                      
                     }
-
                     // allow user to read
                     ActionComplete();
-
                 }
 
                 else if (answer == 2)
-                {
-                    // show all patients
-                    foreach (var p in myHospital.patients)
-                    {
-                        Console.WriteLine(p.firstName);
-                        Console.WriteLine(p.lastName);
-                        Console.WriteLine(p.age);
-                        Console.WriteLine(p.conditions);
-                        Console.WriteLine(p.currentHospital);
-                        Console.WriteLine("\n");
-                    }
-                    // allow user to read
-                    ActionComplete();
-                }
-
-                // delete patient
-                else if (answer == 3)
-                {
-                    try
-                    {
-                        int PatientCount = CountPatients(myHospital.patients);
-                        Console.WriteLine("Which patient do you want to delete? Enter array spot!");
-
-                        // fetch user input
-                        int deleteArray = int.Parse(Console.ReadLine());
-
-                        // patient deleted
-                        myHospital.patients[deleteArray] = null;
-
-                        // display patient deleted for user
-                        Console.WriteLine($"Patient has now been dismissed!");     // patient.Fname patient.Lname has been deleted! ??? maybe if possible
-                        Console.WriteLine("The number of patients before 'delete patient' : " + PatientCount); // display number of patients before delete patient
-                        Console.WriteLine("The number of patients after 'delete patient' : " + CountPatients(ref PatientCount)); // display number of patients after delete patient
-
-                        // allow user to read
-                        ActionComplete();
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Bad user input");
-                    }
-                }
-
-                else if (answer == 4)
                 {
                     // to be created, transfer patient
                     // hard task to be created
@@ -108,7 +93,7 @@ namespace Hospital1
                     ActionComplete();
                 }
 
-                else if (answer == 5)
+                else if (answer == 3)
                 {
                     Console.WriteLine("Exiting application... Press any key to continue");
                     appRunning = false;
@@ -119,15 +104,15 @@ namespace Hospital1
                 {
                     // do nothing, catch-block will catch errors
                 }
-                //}
+            }
 
-                // catch
-                // {
+            catch
+            {
                 Console.WriteLine("Input was not a valid entry, use numbers. Press 'Enter' to return to the main menu.");
 
                 // let user see the message by placing a readline under, so user has to interact to return to main menu
                 Console.ReadLine();
-                // }
+            }
 
             }
 
@@ -136,25 +121,21 @@ namespace Hospital1
             Environment.Exit(0);
         }
 
-        static public Patient CreatePatient()
+        static public Patient CreatePatient(Patient p)
         {
             string[] firstName = new string[] { "Jake", "Claire", "Noah", "Louise", "Peter", "Gwen", "Owen", "Blake", "Sandra", "Tresh" };
             string[] lastName = new string[] { "Lane", "Samuelson", "Hansen", "Parker", "Stacy", "O'Brien", "Garfield", "Jackson", "Banner", "Kent" };
             string[] conditions = new string[10];
 
+            p.firstName = firstName[RandomDice()];         // assign random first name from existing array
+            p.lastName = lastName[RandomDice()];           // assign random last name from existing array
+            p.age = RandomAge();                           // assign random age from method    
+            p.conditions = GenerateCondition(conditions);  // generate conditions - set conditions to rnd generate
+            p.currentHospital = "Sacred Heart";            // name for hospital
 
-            Patient patient = new Patient()
-            {
-                firstName = firstName[RandomDice()],         // assign random first name from existing array
-                lastName = lastName[RandomDice()],           // assign random last name from existing array
-                age = RandomAge(),                           // assign random age from method    
-                conditions = GenerateCondition(conditions),  // generate conditions - set conditions to rnd generate
-                currentHospital = "Sacred Heart"             // name for hospital
-
-            };
-            return patient;
+            return p;
         }
-        // TEST OUT FUNCTIONALITY on loops
+        
         static string[] GenerateCondition(string[] patientConditions)
         {
             // list of conditions to generate
@@ -171,29 +152,27 @@ namespace Hospital1
                 if (myDice > 4)
                 {
                     // dont add same disease, check if it is there
-                    for (int j = 0; j < patientConditions.Length; j++)
+                    for (int i = 0; i < patientConditions.Length; i++)
                     {
                         // condition to add
                         string newCondition = conditions[RandomDice()];
 
-                        for (int i = 0; i < patientConditions.Length; i++)
+                        for (int k = 0; k < patientConditions.Length; k++)
                         {
                             // check so same condition is not added
-                            while (newCondition == patientConditions[j])
+                            while (newCondition == patientConditions[k])
                             {
                                 newCondition = conditions[RandomDice()];
-                            }
-
-                            // set condition
-                            patientConditions[i] = newCondition;
+                            }                        
 
                             // should patient get a new condition? let the dice decide
                             myDice = RandomDice();
                         }
 
+                        // set condition
+                        patientConditions[i] = newCondition;
                     }
                 }
-
                 // cancel loop if not higher than 4
                 else
                 {
@@ -227,18 +206,16 @@ namespace Hospital1
             Console.WriteLine("Enter the number which represents your service that you wish to use today.");
 
             // list options...
-            Console.WriteLine("1. Create patient");
-            Console.WriteLine("2. List patients");
-            Console.WriteLine("3. Delete patient");
-            Console.WriteLine("4. Transfer patients");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("1. List patients");
+            Console.WriteLine("2. Transfer patients");
+            Console.WriteLine("3. Exit");
         }
 
         static void ActionComplete()
         {
             // allow user to read output
             Console.WriteLine("Request complete. Press any key to continue");
-            Console.ReadLine();
+            var waitCommand = Console.ReadLine();
         }
 
         //Counts the amount of patients in the hospital
@@ -250,7 +227,7 @@ namespace Hospital1
         //CountPatients with ref argument makes permanent changes to x variable to keep track of the patients
         static int CountPatients(ref int x)
         {
-            x -= 1;
+            x--;
             return x;
         }
     }
@@ -260,11 +237,11 @@ namespace Hospital1
 {
     public class Patient
         {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int age { get; set; }
-        public string[] conditions { get; set; }
-        public string currentHospital { get; set; }
+            public string firstName;
+            public string lastName;
+            public int age;
+            public string[] conditions;
+            public string currentHospital;
         }
 
         public class Business
