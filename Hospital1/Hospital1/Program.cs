@@ -96,6 +96,12 @@ namespace Hospital1
 
                 else if (answer == 3)
                 {
+                    Console.WriteLine("Enter two figures: ");
+                    int byRef = int.Parse(Console.ReadLine());
+                    int byVal = int.Parse(Console.ReadLine());
+                    ByRefByVal(ref byRef, byVal);
+                    Console.WriteLine("Figure (Ref): " + byRef);
+                    Console.WriteLine("Figure (Val): " + byVal);
                     Console.WriteLine("Exiting application... Press any key to continue");
                     appRunning = false;
                     Console.ReadLine();
@@ -210,17 +216,12 @@ namespace Hospital1
             var waitCommand = Console.ReadLine();
         }
 
-        //Counts the amount of patients in the hospital
-        static int CountPatients(Patient[] x)
-        {
-            return x.Length;
-        }
-
-        //CountPatients with ref argument makes permanent changes to x variable to keep track of the patients
-        static int CountPatients(ref int x)
+        // byRef byVal statement
+        static void ByRefByVal(ref int x, int y)
         {
             x--;
-            return x;
+            y--;
+            Console.WriteLine("ByRef: " + x + " ByVal" + y);
         }
     }
 }
