@@ -1,0 +1,6 @@
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\bin\Debug\HospitalDLL.dll
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\bin\Debug\HospitalDLL.pdb
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\obj\Debug\HospitalDLL.csprojAssemblyReference.cache
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\obj\Debug\HospitalDLL.csproj.CoreCompileInputs.cache
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\obj\Debug\HospitalDLL.dll
+E:\gitRepos\Radarparet\HospitalDLL\HospitalDLL\obj\Debug\HospitalDLL.pdb

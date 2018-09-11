@@ -47,71 +47,93 @@ namespace Hospital1
                 WelcomeUser();
 
                 // read input from user
-                int answer = int.Parse(Console.ReadLine());
-
-                // use an -if to take user to users desired service, will call method based on answer
-
-                if (answer == 1)
+                try
                 {
-                    // show all patients
-                    foreach (var p in business.patients)
+                    int answer = int.Parse(Console.ReadLine());
+
+                    // use an -if to take user to users desired service, will call method based on answer
+
+                    if (answer == 1)
                     {
-                        Console.WriteLine("-------------------------------");
-
-                        Console.WriteLine($"First name: {p.firstName}");
-                        Console.WriteLine($"Last name: {p.lastName}");
-                        Console.WriteLine($"Age: {p.age}");
-
-                        // write conditions with loop
-                        Console.WriteLine("\nCurrent conditions: ");
-
-                        // write out for the patients
-                        for (int i = 0; i < 4; i++)
+                        // show all patients
+                        foreach (var p in business.patients)
                         {
-                            Console.Write($"{p.conditions[i]}, ");
+                            Console.WriteLine("-------------------------------");
+
+                            Console.WriteLine($"First name: {p.firstName}");
+                            Console.WriteLine($"Last name: {p.lastName}");
+                            Console.WriteLine($"Age: {p.age}");
+
+                            // write conditions with loop
+                            Console.WriteLine("\nCurrent conditions: ");
+
+                            // write out for the patients
+                            for (int i = 0; i < 4; i++)
+                            {
+                                Console.Write($"{p.conditions[i]}, ");
+                            }
+
+                            // create space after loop - readabillity
+                            Console.WriteLine("\n");
+
+                            Console.WriteLine($"Current hospital: {p.currentHospital}");
+
+                            Console.WriteLine("-------------------------------");
+
+                            Console.WriteLine("\n");
                         }
-                                                                       
-                        // create space after loop - readabillity
-                        Console.WriteLine("\n");
 
-                        Console.WriteLine($"Current hospital: {p.currentHospital}");
-
-                        Console.WriteLine("-------------------------------");
-
-                        Console.WriteLine("\n");                      
+                        // allow user to read
+                        ActionComplete();
                     }
 
-                    // allow user to read
-                    ActionComplete();
+                    else if (answer == 2)
+                    {
+                        // to be created, transfer patient
+                        // hard task to be created
+
+                        // allow user to read
+                        ActionComplete();
+                    }
+
+                    else if (answer == 3)
+                    {
+                        // dont allow string
+                        try
+                        {                            
+                            // ask user if about to app to use byRef
+                            Console.WriteLine("Rate your experience with the application.");
+                            int byRef = int.Parse(Console.ReadLine());
+
+                            // ask how likely it would be for user to recommend the app to a friend
+                            Console.WriteLine("How likely is it that you would consider using this app again?");
+                            int byVal = int.Parse(Console.ReadLine());
+
+                            ByRefByVal(ref byRef, byVal);
+
+                            Console.WriteLine($"Your user experience - 1 (Ref): {byRef}");
+                            Console.WriteLine($"Likely to recommend (Val): {byVal}");
+                            Console.WriteLine("Exiting application... Press any key to continue");
+                            appRunning = false;
+                            Console.ReadLine();
+                        }
+                        catch 
+                        {                  
+                            Console.WriteLine($"Bad input! Press any key to continue..");
+                            Console.ReadLine();
+                        }
+                    }
+
+                    else
+                    {
+                        // do nothing, catch-block will catch errors
+                    }
                 }
-
-                else if (answer == 2)
+                catch
                 {
-                    // to be created, transfer patient
-                    // hard task to be created
-
-                    // allow user to read
-                    ActionComplete();
-                }
-
-                else if (answer == 3)
-                {
-                    Console.WriteLine("Enter two figures: ");
-                    int byRef = int.Parse(Console.ReadLine());
-                    int byVal = int.Parse(Console.ReadLine());
-                    ByRefByVal(ref byRef, byVal);
-                    Console.WriteLine("Figure (Ref): " + byRef);
-                    Console.WriteLine("Figure (Val): " + byVal);
-                    Console.WriteLine("Exiting application... Press any key to continue");
-                    appRunning = false;
+                    Console.WriteLine("Bad input! Press any key to continue..");
                     Console.ReadLine();
-                }
-
-                else
-                {
-                    // do nothing, catch-block will catch errors
-                }
-
+                }                
             }
 
             // app will enter this phase when user enters exit, which will terminate the application
@@ -206,7 +228,7 @@ namespace Hospital1
             // list options...
             Console.WriteLine("1. List patients");
             Console.WriteLine("2. Transfer patients");
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("3. Rate your experience with the application and exit.");
         }
 
         static void ActionComplete()
@@ -221,7 +243,7 @@ namespace Hospital1
         {
             x--;
             y--;
-            Console.WriteLine("ByRef: " + x + " ByVal" + y);
+            Console.WriteLine($"ByRef: {x} ByVal: {y}");
         }
     }
 }
