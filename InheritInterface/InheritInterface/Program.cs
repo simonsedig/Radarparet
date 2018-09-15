@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace InheritInterface
 {
-    class Program
+    public interface IOverride
+    {
+        void Introduction();
+    }
+    public class OverrideClass : IOverride
+    {
+        // this will get override
+        public virtual void Introduction()
+        {
+            Console.WriteLine("This will get overriden by an actual menu, provided in program class.");
+        }
+    }
+    class Program : OverrideClass
     {
         static void Main(string[] args)
         {
@@ -14,7 +26,7 @@ namespace InheritInterface
             bool programRunning = true;
 
             // create garage and viewer
-            Garage myGarage = new Garage();            
+            Garage myGarage = new Garage();
 
             // do this while running
             while (programRunning)
@@ -22,13 +34,14 @@ namespace InheritInterface
                 // clear previous conversations
                 Console.Clear();
 
-                // introduction
-                Introduction();
+                // introduction - Override overclass method
+                Program p = new Program();
+                p.Introduction();
 
                 try
                 {
                     // what do user want to do today?
-                    int answer = int.Parse(Console.ReadLine());                
+                    int answer = int.Parse(Console.ReadLine());
 
                     // dont let user type to high number
                     if (answer > 4 || answer < 1)
@@ -49,7 +62,7 @@ namespace InheritInterface
 
                             case 1:
                                 {
-                            
+
                                     // ask user which garage spot he wants to look at
                                     Console.WriteLine($"Which garage spot do you wish to look at? {myGarage.vehicles.Length} vehicles available, spot 0-4");
 
@@ -62,6 +75,11 @@ namespace InheritInterface
 
                             case 2:
                                 {
+                                    Console.WriteLine("I take this as we have trust issues, bad human!");
+
+                                    // give chance to read code
+                                    Console.ReadLine();
+
                                     break;
                                 }
 
@@ -93,12 +111,14 @@ namespace InheritInterface
 
             }
         }
-        static void Introduction()
+
+        // this method will get override
+        public override void Introduction()
         {
             Console.WriteLine("Welcome to the garage! \nWhat do you wish to do today?.. Jeeves only understands numbers!");
 
             Console.WriteLine("1. View item in garage.");
-            Console.WriteLine("2. Do that");
+            Console.WriteLine("2. This option does virtually nothing.");
             Console.WriteLine("3. Exit program");
         }
     }
@@ -157,7 +177,7 @@ namespace InheritInterface
         }
     }
 
-    public class Vehicle
+    public abstract class Vehicle
     {
         public string name;
         public string modell;
@@ -222,7 +242,7 @@ namespace InheritInterface
         }
     }
     // not used
-    class Boat
+    class Boat : IOverride
     {
         public string boatName;
         public string boatModel;
@@ -234,6 +254,10 @@ namespace InheritInterface
         {
             boatName = "StenaLine";
             boatModel = "SpendYoMoneyOnSlots";
+        }
+       public void Introduction()
+        {
+            Console.WriteLine("Welcome to the Yatchy!");  // extended
         }
     }
 }

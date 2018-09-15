@@ -5,3 +5,10 @@ C:\Users\Jonte\source\repos\InheritInterface\InheritInterface\obj\Debug\InheritI
 C:\Users\Jonte\source\repos\InheritInterface\InheritInterface\obj\Debug\InheritInterface.csproj.CoreCompileInputs.cache
 C:\Users\Jonte\source\repos\InheritInterface\InheritInterface\obj\Debug\InheritInterface.exe
 C:\Users\Jonte\source\repos\InheritInterface\InheritInterface\obj\Debug\InheritInterface.pdb
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\bin\Debug\InheritInterface.exe.config
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\bin\Debug\InheritInterface.exe
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\bin\Debug\InheritInterface.pdb
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\obj\Debug\InheritInterface.csprojAssemblyReference.cache
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\obj\Debug\InheritInterface.csproj.CoreCompileInputs.cache
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\obj\Debug\InheritInterface.exe
+C:\Users\Jonte\Desktop\InheritInterface\InheritInterface\obj\Debug\InheritInterface.pdb
