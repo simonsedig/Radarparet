@@ -39,6 +39,7 @@
             this.LineupButton = new System.Windows.Forms.Button();
             this.TableButton = new System.Windows.Forms.Button();
             this.UndefinedLabel = new System.Windows.Forms.Label();
+            this.TeamButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DBTestLabel
@@ -153,12 +154,22 @@
             this.UndefinedLabel.TabIndex = 10;
             this.UndefinedLabel.Text = "Undefined";
             // 
+            // TeamButton
+            // 
+            this.TeamButton.Location = new System.Drawing.Point(422, 330);
+            this.TeamButton.Name = "TeamButton";
+            this.TeamButton.Size = new System.Drawing.Size(145, 62);
+            this.TeamButton.TabIndex = 11;
+            this.TeamButton.Text = "Manage Teams";
+            this.TeamButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(632, 429);
+            this.Controls.Add(this.TeamButton);
             this.Controls.Add(this.UndefinedLabel);
             this.Controls.Add(this.TableButton);
             this.Controls.Add(this.LineupButton);
@@ -190,6 +201,7 @@
         private System.Windows.Forms.Button LineupButton;
         private System.Windows.Forms.Button TableButton;
         private System.Windows.Forms.Label UndefinedLabel;
+        private System.Windows.Forms.Button TeamButton;
     }
 }
 

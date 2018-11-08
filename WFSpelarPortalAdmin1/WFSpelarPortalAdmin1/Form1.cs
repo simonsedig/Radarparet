@@ -86,5 +86,14 @@ namespace WFSpelarPortalAdmin1
             tableForm.ShowDialog();
             this.Close();
         }
+
+        // change form
+        private void TeamButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TeamForm teamForm = new TeamForm();
+            teamForm.ShowDialog();
+            this.Close();
+        }
     }
 }
