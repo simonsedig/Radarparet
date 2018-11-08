@@ -1,0 +1,60 @@
+﻿table {
+    border-collapse: collapse;
+    width: 30%;
+    font-family: Helvetica;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+td {
+    background: #404040;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+tr:hover {
+    background-color: #acfbac
+}
+
+th {
+    background-color: #181818;
+    color: white;
+}
+
+.divBody {
+    display: inline-block;
+    margin-top: 120px;
+    margin-left: 5px;
+    width: 99.5%;
+}
+.divContentLeft {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    float:left;
+    width: 400px; /* You need a width if you're going to use auto margins */
+}
+.divContentRight {
+    padding-right: 40px;
+    padding-top: 50px;
+    float:right;
+}
+.nextGame {
+    width: 500px;
+}
+.teamTable {
+    width:900px;
+    margin-bottom:20px
+}
+.assistTable {
+    margin-bottom: 20px;
+    margin-right: 200px;
+}
+.scoreTable {
+    margin-bottom: 20px;
+    margin-left: 200px;
+}

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FootyDBModelStoreContainer" CdmEntityContainer="FootyDBEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FootyDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentSquads">
+      <EntityTypeMapping TypeName="FootyDBModel.CurrentSquad">
+        <MappingFragment StoreEntitySet="CurrentSquad">
+          <ScalarProperty Name="IdPlayer" ColumnName="IdPlayer" />
+          <ScalarProperty Name="IdSquadNo" ColumnName="IdSquadNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fixtures">
+      <EntityTypeMapping TypeName="FootyDBModel.Fixture">
+        <MappingFragment StoreEntitySet="Fixtures">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Referee" ColumnName="Referee" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TeamAwayId" ColumnName="TeamAwayId" />
+          <ScalarProperty Name="TeamHomeId" ColumnName="TeamHomeId" />
+          <ScalarProperty Name="FixtureId" ColumnName="FixtureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="FootyDBModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Injured" ColumnName="Injured" />
+          <ScalarProperty Name="RedCards" ColumnName="RedCards" />
+          <ScalarProperty Name="YellowCards" ColumnName="YellowCards" />
+          <ScalarProperty Name="Assists" ColumnName="Assists" />
+          <ScalarProperty Name="Goals" ColumnName="Goals" />
+          <ScalarProperty Name="PlayedGames" ColumnName="PlayedGames" />
+          <ScalarProperty Name="ShirtNumber" ColumnName="ShirtNumber" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="FootyDBModel.Team">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="ArenaName" ColumnName="ArenaName" />
+          <ScalarProperty Name="Colors" ColumnName="Colors" />
+          <ScalarProperty Name="Coach" ColumnName="Coach" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RankingTables">
+      <EntityTypeMapping TypeName="FootyDBModel.RankingTable">
+        <MappingFragment StoreEntitySet="RankingTable">
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="LostGames" ColumnName="LostGames" />
+          <ScalarProperty Name="DrawGames" ColumnName="DrawGames" />
+          <ScalarProperty Name="WonGames" ColumnName="WonGames" />
+          <ScalarProperty Name="PlayedGames" ColumnName="PlayedGames" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="RankingId" ColumnName="RankingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

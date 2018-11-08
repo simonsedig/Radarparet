@@ -1,0 +1,135 @@
+﻿body {
+    background: darkgreen;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.divBody {
+    outline: 1px solid white;
+}
+header {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.headerDiv {
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.loginBody {
+    padding-top: 10em;
+    padding-bottom: 1em;
+}
+.loginBody h1 {
+    /*Loginbox seperation*/
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /*Loginbox seperation*/
+
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    line-height: 20px;
+    text-align: center;
+    position: center;
+    text-shadow: 0.2px 0.2px #2C7873;
+}
+
+.windowLogin {
+    width: 250px;
+    height: 300px;
+    margin: 0 auto;
+    border: thin solid #ccc;
+    padding: 1em;
+    background-color: whitesmoke;
+    color: black;
+}
+label {
+    font-weight: bold !important;
+}
+
+/* layout for box */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* cool buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* hoover effect*/
+button:hover {
+    opacity: 0.8;
+}
+
+.myFooter {
+    text-align: center;
+    position: center;
+}
+
+/* nav bar */
+nav ul {
+    list-style-type: none;
+    margin: 115px 0 0 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+}
+
+nav li {
+    float: left;
+    border-right: 1px solid #bbb;
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* nav-bar current user */
+.loggedUser {
+    float: right;
+    text-align: center;
+    font-weight: bold;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* change color on hoover */
+nav li a:hover {
+    background-color: #111;
+}
+ /* active color changed*/
+nav li a:active {
+    background: #4CAF50;
+}
+

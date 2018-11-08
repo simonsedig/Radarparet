@@ -1,0 +1,42 @@
+﻿@model  SpelarPortalenMVC1.Models.TableLeagueVM
+
+@{
+    ViewBag.Title = "Table";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<link href="~/Style/StyleSheetALL.css" rel="stylesheet" />
+
+<div>
+
+    <h1 style="text-align:center"> League table </h1>
+
+    <table class="teamTable" align="center">
+        <tr>
+            <th> Team: </th>
+            <th> Played games: </th>
+            <th> Wins: </th>
+            <th> Draws: </th>
+            <th> Lost: </th>
+            <th> Points: </th>
+        </tr>
+
+        <!--order table by points-->
+        @foreach (var item in Model.TeamLists.OrderByDescending(points => points.TPoints))
+        {
+            <tr>
+                <td> @item.TName </td>
+                <td> @item.TPlayerGames </td>
+                <td> @item.TWins </td>
+                <td> @item.TDraw </td>
+                <td> @item.TLost </td>
+                <td> @item.TPoints </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+
+
+

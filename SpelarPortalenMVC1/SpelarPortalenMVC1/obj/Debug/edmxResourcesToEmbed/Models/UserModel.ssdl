@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FootyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CurrentSquad">
+    <Key>
+      <PropertyRef Name="IdSquadNo" />
+    </Key>
+    <Property Name="IdSquadNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPlayer" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fixtures">
+    <Key>
+      <PropertyRef Name="FixtureId" />
+    </Key>
+    <Property Name="FixtureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamHomeId" Type="int" Nullable="false" />
+    <Property Name="TeamAwayId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Referee" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Result" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="Position" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShirtNumber" Type="int" Nullable="false" />
+    <Property Name="PlayedGames" Type="int" Nullable="false" />
+    <Property Name="Goals" Type="int" Nullable="false" />
+    <Property Name="Assists" Type="int" Nullable="false" />
+    <Property Name="YellowCards" Type="int" Nullable="false" />
+    <Property Name="RedCards" Type="int" Nullable="false" />
+    <Property Name="Injured" Type="bit" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RankingTable">
+    <Key>
+      <PropertyRef Name="RankingId" />
+    </Key>
+    <Property Name="RankingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="PlayedGames" Type="int" Nullable="false" />
+    <Property Name="WonGames" Type="int" Nullable="false" />
+    <Property Name="DrawGames" Type="int" Nullable="false" />
+    <Property Name="LostGames" Type="int" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Name="TeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Coach" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Colors" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ArenaName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CurrentSquad_Players">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="CurrentSquad" Type="Self.CurrentSquad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="CurrentSquad">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Teams">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RankingTable_RankingTable">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="RankingTable" Type="Self.RankingTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="RankingTable">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FootyDBModelStoreContainer">
+    <EntitySet Name="CurrentSquad" EntityType="Self.CurrentSquad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fixtures" EntityType="Self.Fixtures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RankingTable" EntityType="Self.RankingTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CurrentSquad_Players" Association="Self.FK_CurrentSquad_Players">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="CurrentSquad" EntitySet="CurrentSquad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Teams" Association="Self.FK_Players_Teams">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Users" Association="Self.FK_Players_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RankingTable_RankingTable" Association="Self.FK_RankingTable_RankingTable">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="RankingTable" EntitySet="RankingTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
