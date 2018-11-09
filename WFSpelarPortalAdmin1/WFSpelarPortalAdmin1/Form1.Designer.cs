@@ -45,17 +45,19 @@
             // DBTestLabel
             // 
             this.DBTestLabel.AutoSize = true;
-            this.DBTestLabel.Location = new System.Drawing.Point(137, 26);
+            this.DBTestLabel.Location = new System.Drawing.Point(183, 32);
+            this.DBTestLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DBTestLabel.Name = "DBTestLabel";
-            this.DBTestLabel.Size = new System.Drawing.Size(134, 13);
+            this.DBTestLabel.Size = new System.Drawing.Size(176, 17);
             this.DBTestLabel.TabIndex = 0;
             this.DBTestLabel.Text = "Test database connection:";
             // 
             // AttemptButton
             // 
-            this.AttemptButton.Location = new System.Drawing.Point(411, 21);
+            this.AttemptButton.Location = new System.Drawing.Point(548, 26);
+            this.AttemptButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AttemptButton.Name = "AttemptButton";
-            this.AttemptButton.Size = new System.Drawing.Size(96, 23);
+            this.AttemptButton.Size = new System.Drawing.Size(128, 28);
             this.AttemptButton.TabIndex = 1;
             this.AttemptButton.Text = "Attempt";
             this.AttemptButton.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@
             this.ConnectedLabel.AutoSize = true;
             this.ConnectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectedLabel.ForeColor = System.Drawing.Color.Green;
-            this.ConnectedLabel.Location = new System.Drawing.Point(277, 26);
+            this.ConnectedLabel.Location = new System.Drawing.Point(369, 32);
+            this.ConnectedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ConnectedLabel.Name = "ConnectedLabel";
-            this.ConnectedLabel.Size = new System.Drawing.Size(68, 13);
+            this.ConnectedLabel.Size = new System.Drawing.Size(85, 17);
             this.ConnectedLabel.TabIndex = 2;
             this.ConnectedLabel.Text = "Connected";
             this.ConnectedLabel.Visible = false;
@@ -78,9 +81,10 @@
             this.DisconnectedLabel.AutoSize = true;
             this.DisconnectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectedLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.DisconnectedLabel.Location = new System.Drawing.Point(277, 26);
+            this.DisconnectedLabel.Location = new System.Drawing.Point(369, 32);
+            this.DisconnectedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DisconnectedLabel.Name = "DisconnectedLabel";
-            this.DisconnectedLabel.Size = new System.Drawing.Size(85, 13);
+            this.DisconnectedLabel.Size = new System.Drawing.Size(106, 17);
             this.DisconnectedLabel.TabIndex = 3;
             this.DisconnectedLabel.Text = "Disconnected";
             this.DisconnectedLabel.Visible = false;
@@ -89,17 +93,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(215, 115);
+            this.label1.Location = new System.Drawing.Point(287, 142);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 24);
+            this.label1.Size = new System.Drawing.Size(248, 29);
             this.label1.TabIndex = 4;
             this.label1.Text = "Administrative menu";
             // 
             // UserButton
             // 
-            this.UserButton.Location = new System.Drawing.Point(241, 330);
+            this.UserButton.Location = new System.Drawing.Point(321, 406);
+            this.UserButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UserButton.Name = "UserButton";
-            this.UserButton.Size = new System.Drawing.Size(145, 62);
+            this.UserButton.Size = new System.Drawing.Size(193, 76);
             this.UserButton.TabIndex = 5;
             this.UserButton.Text = "Manage Users";
             this.UserButton.UseVisualStyleBackColor = true;
@@ -107,9 +113,10 @@
             // 
             // PlayerButton
             // 
-            this.PlayerButton.Location = new System.Drawing.Point(241, 202);
+            this.PlayerButton.Location = new System.Drawing.Point(321, 249);
+            this.PlayerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PlayerButton.Name = "PlayerButton";
-            this.PlayerButton.Size = new System.Drawing.Size(145, 62);
+            this.PlayerButton.Size = new System.Drawing.Size(193, 76);
             this.PlayerButton.TabIndex = 6;
             this.PlayerButton.Text = "Manage Players";
             this.PlayerButton.UseVisualStyleBackColor = true;
@@ -117,9 +124,10 @@
             // 
             // FixtureButton
             // 
-            this.FixtureButton.Location = new System.Drawing.Point(62, 330);
+            this.FixtureButton.Location = new System.Drawing.Point(83, 406);
+            this.FixtureButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FixtureButton.Name = "FixtureButton";
-            this.FixtureButton.Size = new System.Drawing.Size(145, 62);
+            this.FixtureButton.Size = new System.Drawing.Size(193, 76);
             this.FixtureButton.TabIndex = 7;
             this.FixtureButton.Text = "Manage Fixtures";
             this.FixtureButton.UseVisualStyleBackColor = true;
@@ -127,9 +135,10 @@
             // 
             // LineupButton
             // 
-            this.LineupButton.Location = new System.Drawing.Point(62, 202);
+            this.LineupButton.Location = new System.Drawing.Point(83, 249);
+            this.LineupButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LineupButton.Name = "LineupButton";
-            this.LineupButton.Size = new System.Drawing.Size(145, 62);
+            this.LineupButton.Size = new System.Drawing.Size(193, 76);
             this.LineupButton.TabIndex = 8;
             this.LineupButton.Text = "Manage Current Lineup";
             this.LineupButton.UseVisualStyleBackColor = true;
@@ -137,9 +146,10 @@
             // 
             // TableButton
             // 
-            this.TableButton.Location = new System.Drawing.Point(422, 202);
+            this.TableButton.Location = new System.Drawing.Point(563, 249);
+            this.TableButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TableButton.Name = "TableButton";
-            this.TableButton.Size = new System.Drawing.Size(145, 62);
+            this.TableButton.Size = new System.Drawing.Size(193, 76);
             this.TableButton.TabIndex = 9;
             this.TableButton.Text = "Manage Table";
             this.TableButton.UseVisualStyleBackColor = true;
@@ -148,27 +158,30 @@
             // UndefinedLabel
             // 
             this.UndefinedLabel.AutoSize = true;
-            this.UndefinedLabel.Location = new System.Drawing.Point(280, 26);
+            this.UndefinedLabel.Location = new System.Drawing.Point(373, 32);
+            this.UndefinedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UndefinedLabel.Name = "UndefinedLabel";
-            this.UndefinedLabel.Size = new System.Drawing.Size(56, 13);
+            this.UndefinedLabel.Size = new System.Drawing.Size(73, 17);
             this.UndefinedLabel.TabIndex = 10;
             this.UndefinedLabel.Text = "Undefined";
             // 
             // TeamButton
             // 
-            this.TeamButton.Location = new System.Drawing.Point(422, 330);
+            this.TeamButton.Location = new System.Drawing.Point(563, 406);
+            this.TeamButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TeamButton.Name = "TeamButton";
-            this.TeamButton.Size = new System.Drawing.Size(145, 62);
+            this.TeamButton.Size = new System.Drawing.Size(193, 76);
             this.TeamButton.TabIndex = 11;
             this.TeamButton.Text = "Manage Teams";
             this.TeamButton.UseVisualStyleBackColor = true;
+            this.TeamButton.Click += new System.EventHandler(this.TeamButton_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(632, 429);
+            this.ClientSize = new System.Drawing.Size(843, 528);
             this.Controls.Add(this.TeamButton);
             this.Controls.Add(this.UndefinedLabel);
             this.Controls.Add(this.TableButton);
@@ -181,6 +194,7 @@
             this.Controls.Add(this.ConnectedLabel);
             this.Controls.Add(this.AttemptButton);
             this.Controls.Add(this.DBTestLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "SpelarPortalen Admin - Menu";
             this.ResumeLayout(false);

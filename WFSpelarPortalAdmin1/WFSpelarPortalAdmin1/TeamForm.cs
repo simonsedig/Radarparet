@@ -43,8 +43,14 @@ namespace WFSpelarPortalAdmin1
         // clear current
         void ClearData()
         {
+            TeamNameBox.Text = "";
+            CoachBox.Text = "";
+            ColorBox.Text = "";
+            ArenaBox.Text = "";
+
             AddButton.Text = "Add";
             DeleteButton.Enabled = false;
+            teamModel.TeamId = 0;
         }
 
         // go to menu
@@ -69,10 +75,12 @@ namespace WFSpelarPortalAdmin1
                     teamModel.TeamId = Convert.ToInt32(GridViewUsers.CurrentRow.Cells["TeamId"].Value);
                     using (FootyDBEntities db = new FootyDBEntities())
                     {
-                        TeamNameBox.Text = teamModel.TeamName.ToString();
-                        CoachBox.Text = teamModel.Coach.ToString();
-                        ColorBox.Text = teamModel.Colors.ToString();
-                        ArenaBox.Text = teamModel.ArenaName.ToString();
+                        teamModel = db.Teams.Where(x => x.TeamId == teamModel.TeamId).FirstOrDefault();
+
+                        TeamNameBox.Text = teamModel.TeamName;
+                        CoachBox.Text = teamModel.Coach;
+                        ColorBox.Text = teamModel.Colors;
+                        ArenaBox.Text = teamModel.ArenaName;
                     }
 
                     // change add button to update when selected
