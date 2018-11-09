@@ -17,8 +17,7 @@ namespace WFSpelarPortalAdmin1
         // give access to model db entity and db entity
         User userModel = new User();
 
-        // access service to scan for new item
-        FileService1 service = new FileService1();
+        FileService1 service1 = new FileService1();
 
         public UserForm()
         {
@@ -26,8 +25,8 @@ namespace WFSpelarPortalAdmin1
 
             PopulateGridView();
 
-            // start service to check for new data-files
-            service.OnStart();
+            // start service
+            service1.OnStart();
         }
 
         // load data to gridview

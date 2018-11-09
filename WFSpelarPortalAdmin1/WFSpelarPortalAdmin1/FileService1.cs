@@ -8,15 +8,21 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Timers;
 using WFSpelarPortalAdmin1.Logs;
 
 namespace WFSpelarPortalAdmin1
 {
-    partial class FileService1 : ServiceBase
+    public partial class FileService1 : ServiceBase
     {
         // declare filesystemwatch
         FileSystemWatcher watcher;
+
+        // log reference
+        FileLogger log = new FileLogger();
+
+        // path to folder
+        string pathToFolder = @"C:\Users\Jonte\Desktop\WFSpelarPortalAdmin1\WFSpelarPortalAdmin1\Data-library";
 
         public FileService1()
         {
@@ -28,8 +34,6 @@ namespace WFSpelarPortalAdmin1
             // try create watcher onStart();
             try
             {
-                string pathToFolder = @"C:\Users\Jonte\source\repos\WFSpelarPortalAdmin1\WFSpelarPortalAdmin1\Data-library";
-
                 // init new filesystemwatch
                 watcher = new FileSystemWatcher { Path = pathToFolder, IncludeSubdirectories = true, Filter = "*.*" };
                 watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName;
@@ -38,22 +42,28 @@ namespace WFSpelarPortalAdmin1
                 watcher.Renamed += new RenamedEventHandler(WatcherCreated);
                 watcher.Changed += new FileSystemEventHandler(WatcherCreated);
 
-                void WatcherCreated(object source, FileSystemEventArgs e)
-                {
-                    MessageBox.Show("New files have been found in the directory!");
-                }
+                // log started service
+                log.Log("Service has started successfully!");
             }
             // failed? log this "service couldnt start"
             catch (Exception e)
-            {
-                FileLogger log = new FileLogger();
-                log.Log($"The service was unable to start for because of exception {e}.");               
+            {                
+                log.Log($"The service was unable to start for because of exception {e}.");
             }
-
         }
 
-
-
+        public void WatcherCreated(object source, FileSystemEventArgs e)
+        {
+            try
+            {
+                System.Windows.Forms.MessageBox.Show("New files have been found in the directory!");
+                log.Log($"FileWatcher has detected a change in the directory!{pathToFolder}");
+            }
+            catch
+            {
+                log.Log("Service could not be used.. unknown error!");
+            }
+        }
         protected override void OnStop()
         {
             // TODO: Add code here to perform any tear-down necessary to stop your service.

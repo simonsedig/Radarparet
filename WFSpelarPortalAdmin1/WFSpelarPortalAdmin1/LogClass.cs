@@ -15,14 +15,14 @@ namespace WFSpelarPortalAdmin1.Logs
 
     public class FileLogger : LogBase
     {
-        public string filePath = @"C:\Users\Jonte\Desktop\Radarparet-master\Radarparet-master\WFSpelarPortalAdmin1\WFSpelarPortalAdmin1\Logs";
+        public string filePath = @"C:\Users\Jonte\Desktop\WFSpelarPortalAdmin1\WFSpelarPortalAdmin1\Logs\Logs.txt";
         public override void Log(string message)
         {
-            //using (StreamWriter streamWriter = new StreamWriter(filePath))
-            //{
-            //    streamWriter.WriteLine(message);
-            //    streamWriter.Close();
-            //}
+            using (StreamWriter streamWriter = new StreamWriter(filePath))
+            {
+                streamWriter.WriteLine(message);
+                streamWriter.Close();
+            }
         }
     }  
 }
