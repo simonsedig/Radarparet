@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShoppingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Produkt">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pris" Type="money" Nullable="false" />
+          <Property Name="Kategori" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bildadress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vikt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lagerplats" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProduktTillagd">
+          <Key>
+            <PropertyRef Name="TransaktionId" />
+          </Key>
+          <Property Name="TransaktionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VarukorgId" Type="int" Nullable="false" />
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+          <Property Name="Antal" Type="int" Nullable="false" />
+          <Property Name="SummaProdukter" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Varukorg">
+          <Key>
+            <PropertyRef Name="VarukorgId" />
+          </Key>
+          <Property Name="VarukorgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatumSkapad" Type="datetime" Nullable="false" />
+          <Property Name="DatumAvslutad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Betalad" Type="bit" Nullable="false" />
+          <Property Name="Levererad" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ProduktTillagd_Produkt">
+          <End Role="Varukorg" Type="Self.Varukorg" Multiplicity="1" />
+          <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Varukorg">
+              <PropertyRef Name="VarukorgId" />
+            </Principal>
+            <Dependent Role="ProduktTillagd">
+              <PropertyRef Name="VarukorgId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProduktTillagd_Produkt1">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="ProduktTillagd">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShoppingDBModelStoreContainer">
+          <EntitySet Name="Produkt" EntityType="Self.Produkt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProduktTillagd" EntityType="Self.ProduktTillagd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Varukorg" EntityType="Self.Varukorg" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ProduktTillagd_Produkt" Association="Self.FK_ProduktTillagd_Produkt">
+            <End Role="Varukorg" EntitySet="Varukorg" />
+            <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProduktTillagd_Produkt1" Association="Self.FK_ProduktTillagd_Produkt1">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShoppingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Produkt">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pris" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bildadress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vikt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lagerplats" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ProduktTillagd" Relationship="Self.FK_ProduktTillagd_Produkt1" FromRole="Produkt" ToRole="ProduktTillagd" />
+        </EntityType>
+        <EntityType Name="ProduktTillagd">
+          <Key>
+            <PropertyRef Name="TransaktionId" />
+          </Key>
+          <Property Name="TransaktionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VarukorgId" Type="Int32" Nullable="false" />
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <Property Name="Antal" Type="Int32" Nullable="false" />
+          <Property Name="SummaProdukter" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK_ProduktTillagd_Produkt1" FromRole="ProduktTillagd" ToRole="Produkt" />
+          <NavigationProperty Name="Varukorg" Relationship="Self.FK_ProduktTillagd_Produkt" FromRole="ProduktTillagd" ToRole="Varukorg" />
+        </EntityType>
+        <EntityType Name="Varukorg">
+          <Key>
+            <PropertyRef Name="VarukorgId" />
+          </Key>
+          <Property Name="VarukorgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatumSkapad" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumAvslutad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Betalad" Type="Boolean" Nullable="false" />
+          <Property Name="Levererad" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProduktTillagd" Relationship="Self.FK_ProduktTillagd_Produkt" FromRole="Varukorg" ToRole="ProduktTillagd" />
+        </EntityType>
+        <Association Name="FK_ProduktTillagd_Produkt1">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="ProduktTillagd">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProduktTillagd_Produkt">
+          <End Role="Varukorg" Type="Self.Varukorg" Multiplicity="1" />
+          <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Varukorg">
+              <PropertyRef Name="VarukorgId" />
+            </Principal>
+            <Dependent Role="ProduktTillagd">
+              <PropertyRef Name="VarukorgId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShoppingDBEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Produkt" EntityType="Self.Produkt" />
+          <EntitySet Name="ProduktTillagd" EntityType="Self.ProduktTillagd" />
+          <EntitySet Name="Varukorg" EntityType="Self.Varukorg" />
+          <AssociationSet Name="FK_ProduktTillagd_Produkt1" Association="Self.FK_ProduktTillagd_Produkt1">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProduktTillagd_Produkt" Association="Self.FK_ProduktTillagd_Produkt">
+            <End Role="Varukorg" EntitySet="Varukorg" />
+            <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShoppingDBModelStoreContainer" CdmEntityContainer="ShoppingDBEntities4">
+          <EntitySetMapping Name="Produkt">
+            <EntityTypeMapping TypeName="ShoppingDBModel.Produkt">
+              <MappingFragment StoreEntitySet="Produkt">
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+                <ScalarProperty Name="Namn" ColumnName="Namn" />
+                <ScalarProperty Name="Pris" ColumnName="Pris" />
+                <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+                <ScalarProperty Name="Bildadress" ColumnName="Bildadress" />
+                <ScalarProperty Name="Vikt" ColumnName="Vikt" />
+                <ScalarProperty Name="Lagerplats" ColumnName="Lagerplats" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProduktTillagd">
+            <EntityTypeMapping TypeName="ShoppingDBModel.ProduktTillagd">
+              <MappingFragment StoreEntitySet="ProduktTillagd">
+                <ScalarProperty Name="TransaktionId" ColumnName="TransaktionId" />
+                <ScalarProperty Name="VarukorgId" ColumnName="VarukorgId" />
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+                <ScalarProperty Name="Antal" ColumnName="Antal" />
+                <ScalarProperty Name="SummaProdukter" ColumnName="SummaProdukter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Varukorg">
+            <EntityTypeMapping TypeName="ShoppingDBModel.Varukorg">
+              <MappingFragment StoreEntitySet="Varukorg">
+                <ScalarProperty Name="VarukorgId" ColumnName="VarukorgId" />
+                <ScalarProperty Name="DatumSkapad" ColumnName="DatumSkapad" />
+                <ScalarProperty Name="DatumAvslutad" ColumnName="DatumAvslutad" />
+                <ScalarProperty Name="Betalad" ColumnName="Betalad" />
+                <ScalarProperty Name="Levererad" ColumnName="Levererad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

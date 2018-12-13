@@ -1,0 +1,15 @@
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\WFOrderAuto.exe.config
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\WFOrderAuto.exe
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\WFOrderAuto.pdb
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\EntityFramework.dll
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\EntityFramework.xml
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.csprojAssemblyReference.cache
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.Form1.resources
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.Properties.Resources.resources
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.csproj.GenerateResource.cache
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.csproj.CoreCompileInputs.cache
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.csproj.CopyComplete
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.exe
+C:\Users\Simon\source\repos\WFOrderAuto\WFOrderAuto\obj\Debug\WFOrderAuto.pdb

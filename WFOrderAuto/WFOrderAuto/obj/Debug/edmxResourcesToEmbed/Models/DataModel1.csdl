@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Produkt">
+    <Key>
+      <PropertyRef Name="ProduktId" />
+    </Key>
+    <Property Name="ProduktId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Namn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pris" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bildadress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Vikt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lagerplats" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ProduktTillagd" Relationship="Self.FK_ProduktTillagd_Produkt1" FromRole="Produkt" ToRole="ProduktTillagd" />
+  </EntityType>
+  <EntityType Name="ProduktTillagd">
+    <Key>
+      <PropertyRef Name="TransaktionId" />
+    </Key>
+    <Property Name="TransaktionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VarukorgId" Type="Int32" Nullable="false" />
+    <Property Name="ProduktId" Type="Int32" Nullable="false" />
+    <Property Name="Antal" Type="Int32" Nullable="false" />
+    <Property Name="SummaProdukter" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Produkt" Relationship="Self.FK_ProduktTillagd_Produkt1" FromRole="ProduktTillagd" ToRole="Produkt" />
+    <NavigationProperty Name="Varukorg" Relationship="Self.FK_ProduktTillagd_Produkt" FromRole="ProduktTillagd" ToRole="Varukorg" />
+  </EntityType>
+  <EntityType Name="Varukorg">
+    <Key>
+      <PropertyRef Name="VarukorgId" />
+    </Key>
+    <Property Name="VarukorgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DatumSkapad" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DatumAvslutad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Betalad" Type="Boolean" Nullable="false" />
+    <Property Name="Levererad" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProduktTillagd" Relationship="Self.FK_ProduktTillagd_Produkt" FromRole="Varukorg" ToRole="ProduktTillagd" />
+  </EntityType>
+  <Association Name="FK_ProduktTillagd_Produkt1">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ProduktId" />
+      </Principal>
+      <Dependent Role="ProduktTillagd">
+        <PropertyRef Name="ProduktId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProduktTillagd_Produkt">
+    <End Role="Varukorg" Type="Self.Varukorg" Multiplicity="1" />
+    <End Role="ProduktTillagd" Type="Self.ProduktTillagd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Varukorg">
+        <PropertyRef Name="VarukorgId" />
+      </Principal>
+      <Dependent Role="ProduktTillagd">
+        <PropertyRef Name="VarukorgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShoppingDBEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Produkt" EntityType="Self.Produkt" />
+    <EntitySet Name="ProduktTillagd" EntityType="Self.ProduktTillagd" />
+    <EntitySet Name="Varukorg" EntityType="Self.Varukorg" />
+    <AssociationSet Name="FK_ProduktTillagd_Produkt1" Association="Self.FK_ProduktTillagd_Produkt1">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProduktTillagd_Produkt" Association="Self.FK_ProduktTillagd_Produkt">
+      <End Role="Varukorg" EntitySet="Varukorg" />
+      <End Role="ProduktTillagd" EntitySet="ProduktTillagd" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

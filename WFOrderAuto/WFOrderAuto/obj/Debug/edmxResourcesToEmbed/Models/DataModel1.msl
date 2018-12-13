@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShoppingDBModelStoreContainer" CdmEntityContainer="ShoppingDBEntities4">
+    <EntitySetMapping Name="Produkt">
+      <EntityTypeMapping TypeName="ShoppingDBModel.Produkt">
+        <MappingFragment StoreEntitySet="Produkt">
+          <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+          <ScalarProperty Name="Namn" ColumnName="Namn" />
+          <ScalarProperty Name="Pris" ColumnName="Pris" />
+          <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+          <ScalarProperty Name="Bildadress" ColumnName="Bildadress" />
+          <ScalarProperty Name="Vikt" ColumnName="Vikt" />
+          <ScalarProperty Name="Lagerplats" ColumnName="Lagerplats" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProduktTillagd">
+      <EntityTypeMapping TypeName="ShoppingDBModel.ProduktTillagd">
+        <MappingFragment StoreEntitySet="ProduktTillagd">
+          <ScalarProperty Name="TransaktionId" ColumnName="TransaktionId" />
+          <ScalarProperty Name="VarukorgId" ColumnName="VarukorgId" />
+          <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+          <ScalarProperty Name="Antal" ColumnName="Antal" />
+          <ScalarProperty Name="SummaProdukter" ColumnName="SummaProdukter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Varukorg">
+      <EntityTypeMapping TypeName="ShoppingDBModel.Varukorg">
+        <MappingFragment StoreEntitySet="Varukorg">
+          <ScalarProperty Name="VarukorgId" ColumnName="VarukorgId" />
+          <ScalarProperty Name="DatumSkapad" ColumnName="DatumSkapad" />
+          <ScalarProperty Name="DatumAvslutad" ColumnName="DatumAvslutad" />
+          <ScalarProperty Name="Betalad" ColumnName="Betalad" />
+          <ScalarProperty Name="Levererad" ColumnName="Levererad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
