@@ -1,0 +1,18 @@
+﻿<ContentDialog x:ConnectionId='1'
+    x:Class="UWPShoppingApp1.CheckoutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPShoppingApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Slutför ditt köp?"
+    PrimaryButtonText="Ja! Slutför betalning!"
+    SecondaryButtonText="Nej, ta mig tillbaka!"
+                                                         
+                                                             >
+
+    <Grid>
+    </Grid>
+</ContentDialog>
+

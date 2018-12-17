@@ -1,0 +1,142 @@
+﻿<Page
+    x:Class="UWPShoppingApp1.ShoppingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPShoppingApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:UWPShoppingApp1.Classes"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <local1:StringFormatConverter x:Key="StringFormatConverter" />
+    </Page.Resources>
+
+    <Grid>
+
+        <!--Create Rows and Columns with grid layout-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="2.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Create style with borders-->
+        <Border Background="LightGreen" Grid.Row="0" Grid.ColumnSpan="3"></Border>
+        <Border Background="LightGreen" Grid.Row="2" Grid.ColumnSpan="3"></Border>
+
+        <!--Show image on top of page-->
+        <Image Source="Icons/mhk-icon.png" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Width="100" Height="100"></Image>
+
+        <!--Image for shopping cart and border-->
+        <Border Grid.Column="2" Grid.RowSpan="3" BorderThickness="1" BorderBrush="DarkOliveGreen"></Border>
+
+        <RelativePanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">
+            <Image Source="Icons/cart-icon.png" Width="80" Margin="30,30,0,0"></Image>
+            <TextBlock Padding="140,50,0,0" Text="Din varukorg" FontSize="24" FontWeight="Bold"></TextBlock>
+            <TextBlock x:Name="CartIdText" Text="KundvagnId:" Margin="180,0,0,0"></TextBlock>
+            <TextBlock x:Name="CartId" Text="Id" Margin="290,0,0,0" FontWeight="Bold"></TextBlock>
+            
+            <!--Pris Varukorg, antal produkter-->
+            <TextBlock x:Name="TotalVarorKvitto" Text="Antal varor: 0" FontWeight="Bold" Margin="0,130,0,0"></TextBlock>
+            <TextBlock x:Name="TotalPrisKvitto" Text="Totalpris: 0.00 kr" FontWeight="Bold" Margin="200,130,0,0"></TextBlock>
+        </RelativePanel>
+        <Button x:Name="CheckoutButton" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="300" Content="Utcheckning" FontWeight="Bold" FontSize="36" Background="OliveDrab" Click="CheckoutButton_Click"></Button>
+
+        <!-- Right - Shopping Cart Items ListView-->
+        <TextBlock x:Name="CartEmptyText" Grid.Column="2" Grid.Row="1" Text="Din varukorg är tom!" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"></TextBlock>
+        
+        <ListView x:Name="KvittoListView" Grid.Column="2" Grid.Row="1" SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local1:KvittoProdukt">
+                    <StackPanel Padding="15,15,15,15" BorderThickness="0,0,0,1" BorderBrush="LightGray" >
+                        <!--add border-->
+                        
+                        <TextBlock Name="ItemKvittoId"
+                                Text="{x:Bind ProduktId, Converter={StaticResource StringFormatConverter}, ConverterParameter='ProduktID: {0}'}"/>
+
+                        <TextBlock Name="ItemKvittoName"
+                                Text="{x:Bind ProduktNamn}" FontWeight="Bold"/>
+                        
+                        <TextBlock Text="{x:Bind ProduktVikt, Converter={StaticResource StringFormatConverter}, ConverterParameter='Vikt: {0}'}" FontWeight="Bold"/>
+
+                        <TextBlock Text="{x:Bind Antal, Converter={StaticResource StringFormatConverter}, ConverterParameter='Antal: {0}'}" FontWeight="Bold"/>
+
+                        <TextBlock Text="{x:Bind SummaProdukt, Converter={StaticResource StringFormatConverter}, ConverterParameter='Summa SEK: {0:0.00}'}" FontWeight="Bold"/>
+                        
+                       <!--create delete button, color red-->
+                        <Button x:Name="DeleteProductButton" Background="Red" Foreground="WhiteSmoke" Content="Delete" Width="90" Height="50" Click="DeleteProductButton_Click" Margin="250,-100,0,0"></Button>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <!--Left side sorting menu-->
+        <Button x:Name="AbortOrderButton" Content="Avbryt order" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF7043" Width="300" Height="100" FontWeight="Bold" FontSize="36" Click="Button_Click"></Button>
+        <Border x:Name="CancelOrderButton" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" BorderBrush="DarkOliveGreen" BorderThickness="1"></Border>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="670">
+            
+            <TextBox x:Name="SearchBox" MaxLength="25" PlaceholderText="Search specific product here" TextChanged="TextBox_TextChanged"/>
+            
+            <Button x:Name="ShowAllProductsButton" Width="300" Height="100" Content="Visa alla produkter" Margin="0,20,0,30" Foreground="DarkOliveGreen" Background="LightGreen" FontWeight="Bold" Click="ShowAllProductsButton_Click"></Button>
+            <Button x:Name="ShowMeatButton" Width="300" Height="100" Content="Visa kött-produkter" Margin="0,0,0,30" Foreground="DarkOliveGreen" Background="LightGreen" FontWeight="Bold" Click="ShowMeatButton_Click"></Button>
+            <Button x:Name="ShowMejeriButton" Width="300" Height="100" Content="Visa mejeri-produkter" Margin="0,0,0,30" Foreground="DarkOliveGreen" Background="LightGreen" FontWeight="Bold" Click="ShowMejeriButton_Click"></Button>
+            <Button x:Name="ShowVegetableButton" Width="300" Height="100" Content="Visa frukt och grönsaker" Margin="0,0,0,30" Foreground="DarkOliveGreen" Background="LightGreen" FontWeight="Bold" Click="ShowVegetableButton_Click"></Button>
+            <Button x:Name="ShowExtrasButton" Width="300" Height="100" Content="Visa diverse produkter" Margin="0,0,0,30" Foreground="DarkOliveGreen" Background="LightGreen" FontWeight="Bold" Click="ShowExtrasButton_Click"></Button>
+        </StackPanel>
+
+        <!-- Content Middle (Products)-->
+        <TextBlock Name="NoProductText"  Grid.Column="1" Grid.Row="1" Text="Inga produkter hittades." Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        
+        <GridView x:Name="GridViewItem" Grid.Column="1" Grid.Row="1" SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local1:Produkt">
+                    <StackPanel Width="160" Height="350" Margin="10,10,10,10" Padding="15,15,15,15" BorderBrush="LightGray" BorderThickness="1">
+                            
+                        <Image Source="{x:Bind Bildadress}"></Image>
+                            
+                        <TextBlock Name="ItemId"
+                                Text="{x:Bind ProduktId, Converter={StaticResource StringFormatConverter}, ConverterParameter='ProduktID: {0}'}"/>
+                            
+                        <TextBlock Name="ItemName"
+                                Text="{x:Bind Namn}" FontWeight="Bold"/>
+
+                        <TextBlock Text="{x:Bind Pris, Converter={StaticResource StringFormatConverter}, ConverterParameter='SEK: {0:0.00}'}" FontWeight="Bold"/>
+
+                        <TextBlock Text="{x:Bind Vikt}"/>
+
+                        <TextBlock Text="{x:Bind Kategori}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="8*"></RowDefinition>
+                                <RowDefinition Height="2*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Button Tag="{Binding ElementName=AmountBox}" Grid.Row="0" Width="30" x:Name="PlusProduct" Content="+" HorizontalAlignment="Right" Background="Orange" Click="PlusProduct_Click"></Button>
+                            <TextBox Grid.Row="0" x:Name="AmountBox" Text="1" Width="20" HorizontalAlignment="Center" MaxLength="2" IsReadOnly="True"/>
+                            <Button Tag="{Binding ElementName=AmountBox}" Grid.Row="0" Width="30" x:Name="MinusProdukt" Content="-" HorizontalAlignment="Left" Background="ForestGreen" Click="MinusProdukt_Click"></Button>
+
+                            <Button Tag="{Binding ElementName=AmountBox}" x:Name="AddToCartButton" HorizontalAlignment="Center" Margin="0,15,0,0" Grid.Row="1" Content="Add to cart!" Background="LightGreen" Width="120" Foreground="White" FontWeight="Bold" Click="AddToCartButton_Click"></Button>
+                            </Grid>
+                        
+                    </StackPanel>
+                    </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+    </Grid>
+
+</Page>
