@@ -55,11 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduktForm.Designer.cs">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModel1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -85,10 +91,28 @@
     <Compile Include="Models\Varukorg.cs">
       <DependentUpon>DataModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProduktTillagdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduktTillagdForm.Designer.cs">
+      <DependentUpon>ProduktTillagdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="VarukorgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VarukorgForm.Designer.cs">
+      <DependentUpon>VarukorgForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduktForm.resx">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduktTillagdForm.resx">
+      <DependentUpon>ProduktTillagdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +123,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VarukorgForm.resx">
+      <DependentUpon>VarukorgForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\DataModel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataModel1.Designer.cs</LastGenOutput>

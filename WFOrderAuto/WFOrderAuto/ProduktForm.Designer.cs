@@ -1,6 +1,6 @@
 ﻿namespace WFOrderAuto
 {
-    partial class Form1
+    partial class ProduktForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,12 +51,13 @@
             this.LagerplatsBox = new System.Windows.Forms.TextBox();
             this.Lagerplatslabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.MenuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // KategoriBox
             // 
-            this.KategoriBox.Location = new System.Drawing.Point(93, 172);
+            this.KategoriBox.Location = new System.Drawing.Point(94, 172);
             this.KategoriBox.Name = "KategoriBox";
             this.KategoriBox.Size = new System.Drawing.Size(100, 20);
             this.KategoriBox.TabIndex = 66;
@@ -64,7 +65,7 @@
             // KategoriLabel
             // 
             this.KategoriLabel.AutoSize = true;
-            this.KategoriLabel.Location = new System.Drawing.Point(35, 175);
+            this.KategoriLabel.Location = new System.Drawing.Point(36, 175);
             this.KategoriLabel.Name = "KategoriLabel";
             this.KategoriLabel.Size = new System.Drawing.Size(52, 13);
             this.KategoriLabel.TabIndex = 65;
@@ -72,7 +73,7 @@
             // 
             // PrisBox
             // 
-            this.PrisBox.Location = new System.Drawing.Point(93, 135);
+            this.PrisBox.Location = new System.Drawing.Point(94, 135);
             this.PrisBox.Name = "PrisBox";
             this.PrisBox.Size = new System.Drawing.Size(100, 20);
             this.PrisBox.TabIndex = 64;
@@ -80,7 +81,7 @@
             // PrisLabel
             // 
             this.PrisLabel.AutoSize = true;
-            this.PrisLabel.Location = new System.Drawing.Point(52, 138);
+            this.PrisLabel.Location = new System.Drawing.Point(53, 138);
             this.PrisLabel.Name = "PrisLabel";
             this.PrisLabel.Size = new System.Drawing.Size(34, 13);
             this.PrisLabel.TabIndex = 63;
@@ -88,7 +89,7 @@
             // 
             // BildadressBox
             // 
-            this.BildadressBox.Location = new System.Drawing.Point(93, 209);
+            this.BildadressBox.Location = new System.Drawing.Point(94, 209);
             this.BildadressBox.Name = "BildadressBox";
             this.BildadressBox.Size = new System.Drawing.Size(100, 20);
             this.BildadressBox.TabIndex = 62;
@@ -96,7 +97,7 @@
             // BildadressLabel
             // 
             this.BildadressLabel.AutoSize = true;
-            this.BildadressLabel.Location = new System.Drawing.Point(9, 212);
+            this.BildadressLabel.Location = new System.Drawing.Point(10, 212);
             this.BildadressLabel.Name = "BildadressLabel";
             this.BildadressLabel.Size = new System.Drawing.Size(78, 13);
             this.BildadressLabel.TabIndex = 61;
@@ -113,7 +114,7 @@
             this.Bildadress,
             this.Vikt,
             this.Lagerplats});
-            this.GridViewUsers.Location = new System.Drawing.Point(297, 43);
+            this.GridViewUsers.Location = new System.Drawing.Point(298, 43);
             this.GridViewUsers.Name = "GridViewUsers";
             this.GridViewUsers.Size = new System.Drawing.Size(741, 364);
             this.GridViewUsers.TabIndex = 60;
@@ -163,7 +164,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(141, 327);
+            this.DeleteButton.Location = new System.Drawing.Point(142, 327);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 59;
@@ -173,7 +174,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(57, 327);
+            this.AddButton.Location = new System.Drawing.Point(58, 327);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 58;
@@ -183,7 +184,7 @@
             // 
             // NamnBox
             // 
-            this.NamnBox.Location = new System.Drawing.Point(93, 98);
+            this.NamnBox.Location = new System.Drawing.Point(94, 98);
             this.NamnBox.Name = "NamnBox";
             this.NamnBox.Size = new System.Drawing.Size(100, 20);
             this.NamnBox.TabIndex = 57;
@@ -191,7 +192,7 @@
             // NamnLabel
             // 
             this.NamnLabel.AutoSize = true;
-            this.NamnLabel.Location = new System.Drawing.Point(47, 101);
+            this.NamnLabel.Location = new System.Drawing.Point(48, 101);
             this.NamnLabel.Name = "NamnLabel";
             this.NamnLabel.Size = new System.Drawing.Size(38, 13);
             this.NamnLabel.TabIndex = 56;
@@ -199,7 +200,7 @@
             // 
             // ViktBox
             // 
-            this.ViktBox.Location = new System.Drawing.Point(93, 244);
+            this.ViktBox.Location = new System.Drawing.Point(94, 244);
             this.ViktBox.Name = "ViktBox";
             this.ViktBox.Size = new System.Drawing.Size(100, 20);
             this.ViktBox.TabIndex = 70;
@@ -207,7 +208,7 @@
             // Viktlabel
             // 
             this.Viktlabel.AutoSize = true;
-            this.Viktlabel.Location = new System.Drawing.Point(47, 247);
+            this.Viktlabel.Location = new System.Drawing.Point(48, 247);
             this.Viktlabel.Name = "Viktlabel";
             this.Viktlabel.Size = new System.Drawing.Size(41, 13);
             this.Viktlabel.TabIndex = 69;
@@ -215,7 +216,7 @@
             // 
             // LagerplatsBox
             // 
-            this.LagerplatsBox.Location = new System.Drawing.Point(93, 281);
+            this.LagerplatsBox.Location = new System.Drawing.Point(94, 281);
             this.LagerplatsBox.Name = "LagerplatsBox";
             this.LagerplatsBox.Size = new System.Drawing.Size(100, 20);
             this.LagerplatsBox.TabIndex = 68;
@@ -223,7 +224,7 @@
             // Lagerplatslabel
             // 
             this.Lagerplatslabel.AutoSize = true;
-            this.Lagerplatslabel.Location = new System.Drawing.Point(59, 284);
+            this.Lagerplatslabel.Location = new System.Drawing.Point(60, 284);
             this.Lagerplatslabel.Name = "Lagerplatslabel";
             this.Lagerplatslabel.Size = new System.Drawing.Size(25, 13);
             this.Lagerplatslabel.TabIndex = 67;
@@ -232,17 +233,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(91, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 71;
             this.label1.Text = "Product";
             // 
-            // Form1
+            // MenuButton
+            // 
+            this.MenuButton.Location = new System.Drawing.Point(12, 12);
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.Size = new System.Drawing.Size(55, 23);
+            this.MenuButton.TabIndex = 72;
+            this.MenuButton.Text = "Menu";
+            this.MenuButton.UseVisualStyleBackColor = true;
+            this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
+            // 
+            // ProduktForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 450);
+            this.ClientSize = new System.Drawing.Size(1086, 450);
+            this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ViktBox);
             this.Controls.Add(this.Viktlabel);
@@ -259,7 +271,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.NamnBox);
             this.Controls.Add(this.NamnLabel);
-            this.Name = "Form1";
+            this.Name = "ProduktForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.GridViewUsers)).EndInit();
             this.ResumeLayout(false);
@@ -292,6 +304,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Bildadress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vikt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lagerplats;
+        private System.Windows.Forms.Button MenuButton;
     }
 }
 

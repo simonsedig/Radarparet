@@ -11,16 +11,13 @@ using WFOrderAuto.Models;
 
 namespace WFOrderAuto
 {
-    public partial class Form1 : Form
+    public partial class ProduktTillagdForm : Form
     {
         // access to ShoppingModel
-        Produkt produktModel = new Produkt(); 
-        
-        public Form1()
+        Models.ProduktTillagd ProduktTillagdModel = new Models.ProduktTillagd();
+        public ProduktTillagdForm()
         {
             InitializeComponent();
-
-            PopulateGridView();
         }
 
         // load data to gridview
@@ -31,7 +28,7 @@ namespace WFOrderAuto
                 GridViewUsers.AutoGenerateColumns = false;
                 using (ShoppingDBEntities4 db = new ShoppingDBEntities4())
                 {
-                    GridViewUsers.DataSource = db.Produkt.ToList();
+                    GridViewUsers.DataSource = db.ProduktTillagd.ToList();
                 }
             }
             catch
@@ -43,16 +40,21 @@ namespace WFOrderAuto
         // clear current
         void ClearData()
         {
-            NamnBox.Text = "";
-            PrisBox.Text = "";
-            KategoriBox.Text = "";
-            BildadressBox.Text = "";
-            ViktBox.Text = "";
-            LagerplatsBox.Text = "";
+            QuantityBox.Text = "";
+            SumPBox.Text = "";
 
             AddButton.Text = "Add";
             DeleteButton.Enabled = false;
-            produktModel.ProduktId = 0;
+            ProduktTillagdModel.TransaktionId = 0;
+        }
+
+        // go to menu
+        private void MenuButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuForm menuForm = new MenuForm();
+            menuForm.ShowDialog();
+            this.Close();
         }
 
         // when cell data is pressed - will modified
@@ -65,17 +67,13 @@ namespace WFOrderAuto
                 if (GridViewUsers.CurrentRow.Index != -1)
                 {
                     // gets info where id = pressed row id.
-                    produktModel.ProduktId = Convert.ToInt32(GridViewUsers.CurrentRow.Cells["ProduktId"].Value);
+                    ProduktTillagdModel.TransaktionId = Convert.ToInt32(GridViewUsers.CurrentRow.Cells["TransaktionId"].Value);
                     using (ShoppingDBEntities4 db = new ShoppingDBEntities4())
                     {
-                        produktModel = db.Produkt.Where(x => x.ProduktId == produktModel.ProduktId).FirstOrDefault();
+                        ProduktTillagdModel = db.ProduktTillagd.Where(x => x.TransaktionId == ProduktTillagdModel.TransaktionId).FirstOrDefault();
 
-                        NamnBox.Text = produktModel.Namn;
-                        PrisBox.Text = produktModel.Pris.ToString();
-                        KategoriBox.Text = produktModel.Kategori;
-                        BildadressBox.Text = produktModel.Bildadress;
-                        ViktBox.Text = produktModel.Vikt;
-                        LagerplatsBox.Text = produktModel.Lagerplats;
+                        QuantityBox.Text = ProduktTillagdModel.Antal.ToString();
+                        SumPBox.Text = ProduktTillagdModel.SummaProdukter.ToString();
                     }
 
                     // change add button to update when selected
@@ -89,35 +87,31 @@ namespace WFOrderAuto
             }
         }
 
-        // add product
+        // add productAdded
         private void AddButton_Click(object sender, EventArgs e)
         {
-            // try to add product
+            // try to add productAdded
             try
             {
-                produktModel.Namn = NamnBox.Text.Trim();
-                produktModel.Pris = decimal.Parse(PrisBox.Text.Trim());
-                produktModel.Kategori = KategoriBox.Text.Trim();
-                produktModel.Bildadress = BildadressBox.Text.Trim();
-                produktModel.Vikt = ViktBox.Text.Trim();
-                produktModel.Lagerplats = LagerplatsBox.Text.Trim();
+                ProduktTillagdModel.Antal = int.Parse(QuantityBox.Text.Trim());
+                ProduktTillagdModel.SummaProdukter = decimal.Parse(SumPBox.Text.Trim());
 
                 using (ShoppingDBEntities4 db = new ShoppingDBEntities4())
                 {
-                    // to add team
-                    if (produktModel.ProduktId == 0)
+                    // to add productAdded
+                    if (ProduktTillagdModel.TransaktionId == 0)
                     {
-                        db.Produkt.Add(produktModel);
+                        db.ProduktTillagd.Add(ProduktTillagdModel);
                     }
-                    // update team
+                    // update productAdded
                     else
                     {
-                        db.Entry(produktModel).State = System.Data.Entity.EntityState.Modified;
+                        db.Entry(ProduktTillagdModel).State = System.Data.Entity.EntityState.Modified;
                     }
                     db.SaveChanges();
                 }
 
-                MessageBox.Show($"Team with ID: {produktModel.ProduktId} successfully created/updated!");
+                MessageBox.Show($"Team with ID: {ProduktTillagdModel.TransaktionId} successfully created/updated!");
 
                 PopulateGridView();
                 ClearData();
@@ -137,12 +131,12 @@ namespace WFOrderAuto
                 {
                     using (ShoppingDBEntities4 db = new ShoppingDBEntities4())
                     {
-                        var entry = db.Entry(produktModel);
+                        var entry = db.Entry(ProduktTillagdModel);
                         if (entry.State == System.Data.Entity.EntityState.Detached)
                         {
-                            db.Produkt.Attach(produktModel);
+                            db.ProduktTillagd.Attach(ProduktTillagdModel);
                         }
-                        db.Produkt.Remove(produktModel);
+                        db.ProduktTillagd.Remove(ProduktTillagdModel);
                         db.SaveChanges();
 
                         // update gridview
