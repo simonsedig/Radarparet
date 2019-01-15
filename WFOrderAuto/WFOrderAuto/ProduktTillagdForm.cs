@@ -18,6 +18,8 @@ namespace WFOrderAuto
         public ProduktTillagdForm()
         {
             InitializeComponent();
+
+            PopulateGridView();
         }
 
         // load data to gridview

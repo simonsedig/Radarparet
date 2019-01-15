@@ -20,6 +20,8 @@ namespace WFOrderAuto
         public VarukorgForm()
         {
             InitializeComponent();
+
+            PopulateGridView();
         }
 
         // load data to gridview
