@@ -1,0 +1,45 @@
+﻿@model Skolskjuts_etjanst.Models.Users
+@{
+    // log out user if logged in
+    if (Session["UserLogged"] != null)
+    {
+        // user will be transfered away, this will not run first time.
+        if (!Response.IsRequestBeingRedirected)
+        {
+            Session.Abandon();
+
+            // update
+            Response.RedirectPermanent("Login");
+        }
+    }
+
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/_LayoutPageAll.cshtml";
+}
+
+<h2>Logga in</h2>
+
+@using (Html.BeginForm())
+{
+    <div style="text-align:left; word-wrap:inherit">
+        @*Create form with POST-attribute*@
+        <form method="POST" action="">
+            @*Create labels to form*@
+            <label>Användarnamn</label>
+            <br />
+            @Html.TextBoxFor(m => m.UserName, new { placeholder = "Mata in användarnamn" })
+
+            <br />
+
+            <label>Lösenord</label>
+            <br />
+            @Html.PasswordFor(m => m.PassWord, new { placeholder = "Mata in lösenord" })
+            <br />
+            <button type="submit">Logga in!</button>
+
+            <br />
+            @*Display error message here, if there is any!*@
+            @Html.ValidationSummary()
+        </form>
+    </div>
+}

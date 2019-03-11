@@ -1,0 +1,38 @@
+﻿@model List<Bookings>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPageAll.cshtml";
+}
+
+<h1>Hem</h1>
+<br />
+<hr />
+<br />
+
+<h2>Alla avgångar </h2>
+
+<table>
+
+    <tr>
+        <th>Avgångstid</th>
+        <th>Chafför</th>
+        <th>Avgångsplats</th>
+        <th>Destination</th>
+        <th>Passagerare</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.LeavingTime</td>
+        <td>@item.Driver</td>
+        <td>@item.PickUpZone</td>
+        <td>@item.Destination</td>
+        <td>@item.Customer</td>
+    </tr>
+    }
+
+</table>
+
+
+
+
