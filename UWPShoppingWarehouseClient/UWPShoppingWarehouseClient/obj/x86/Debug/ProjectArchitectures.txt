@@ -1,1 +1,0 @@
-C:\Users\Jonte\source\repos\UWPShoppingWarehouseClient\UWPShoppingWarehouseClient\UWPShoppingWarehouseClient.csproj;x86
